@@ -1,0 +1,159 @@
+;===============================================================================
+; Copyright 2000, Fujitsu PC Corporation
+;
+; File     : FPCUTILS.INF
+;
+; Abstract : This is the Setup information file for installing the 
+;            Windows NT Driver and Utilities for Fujitsu Stylistic 3500
+;===============================================================================
+
+
+
+;-------------------------------------------------------------------------------
+; INF File Version Information
+;-------------------------------------------------------------------------------
+[version]
+signature="$Windows NT$"
+Provider=%FPC%
+
+;-------------------------------------------------------------------------------
+; This section denotes distribution disks and assocated Logical Disk
+; Identifiers (LDIDs).
+;
+; <LDID> = <desc. string key>, <disk label>, <disk ser. num.>
+;
+; All the driver files fit on one diskette.
+;-------------------------------------------------------------------------------
+[SourceDisksNames]
+1="NTDRIVER", "NTDRIVER", 0001
+
+;-------------------------------------------------------------------------------
+; This section lists all the filenames and filesizes on the one diskette.
+; Setup uses filesizes to calculate and display a "space needed" amount in
+; the UI.
+;
+; <filename> = <LDID>,,<filesize>
+;-------------------------------------------------------------------------------
+[SourceDisksFiles]
+FUJDRV.SYS     =1,,6276
+SAS.EXE        =1,,32768
+LCDDETCT.EXE     =1,,24576
+FPCUTILS.INF   =1,,6637
+
+;-------------------------------------------------------------------------------
+; This section defines the destination directories for each file-list section.
+; <file-list section> = <predefined directory identifier (DRID)>
+;
+; The following fields specify the destination of files being installed
+; (or uninstalled) for Windows NT
+;-------------------------------------------------------------------------------
+[DestinationDirs]
+FujDriverFiles		= 12	; Windows NT driver directory
+FujUtilityFiles	    = 10	; Windows NT directory
+FujUtilityInf  		= 17    ; Windows NT INF file directory
+
+;-------------------------------------------------------------------------------
+; This section contains the names of the sections that contain information
+; about each optional component.
+;-------------------------------------------------------------------------------
+[Optional Components]
+FujUtility
+
+
+;-------------------------------------------------------------------------------
+; Description of the Optional Component being installed (and uninstalled)
+; by this INF file.
+;-------------------------------------------------------------------------------
+[FujUtility]
+OptionDesc      = %FujUtilityDesc%
+Tip             = %FujUtilityPrompt%
+IconIndex       = 4
+AddReg          = RegisterFujUtilityAddReg, FujDriverAddReg, FujUtilityAddReg
+DelReg          = 
+DelFiles        = 
+CopyFiles       = FujDriverFiles, FujUtilityInf, FujUtilityFiles
+UpdateInis      = 
+UpdateIniFields = 
+Uninstall       = FujUtilityRemove
+Reboot          = 1
+
+[FujUtilityRemove]
+DelFiles        = FujDriverFiles, FujUtilityInf, FujUtilityFiles
+DelReg          = FujUtilityDelReg
+UpdateInis      = 
+UpdateIniFields = 
+Reboot          = 1
+ 
+
+;-------------------------------------------------------------------------------
+; This section copies the fpcutils.inf file to the harddisk so Setup can
+; use it later for uninstall.
+;-------------------------------------------------------------------------------
+[FujUtilityInf]
+fpcutils.inf,,,1
+
+;-------------------------------------------------------------------------------
+; This section copies the FPC Driver (fujdrv.sys) to the Windows NT Drivers
+; directory on the hard disk
+;-------------------------------------------------------------------------------
+[FujDriverFiles]
+fujdrv.sys,,,1
+
+
+;-------------------------------------------------------------------------------
+; This section copies the FPC applications to the Windows NT directory
+; on the hard disk
+;-------------------------------------------------------------------------------
+[FujUtilityFiles]
+sas.exe,,,1
+lcddetct.exe,,,1
+
+
+;-------------------------------------------------------------------------------
+; This section establishes the registry keys that Setup needs to install and
+; uninstall the driver.
+;-------------------------------------------------------------------------------
+[RegisterFujUtilityAddReg]
+; Create Registry entries for Maint Mode Setup
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents,"FujUtility",,"FujUtility"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\FujUtility,INF,,"fpcutils.inf"
+; This optional component's [Optional Component's] section name.
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\FujUtility,Section,,"FujUtility"
+; The default for maintenance mode setup is to mark this component
+; as installed.
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\FujUtility,Installed,,"1"
+
+
+[FujDriverAddReg]
+HKLM,System\CurrentControlSet\Services\FujDrv,Start,0x00010001,1
+HKLM,System\CurrentControlSet\Services\FujDrv,Type,0x00010001,1
+HKLM,System\CurrentControlSet\Services\FujDrv,Tag,0x00010001,2
+HKLM,System\CurrentControlSet\Services\FujDrv,ImagePath,,"SYSTEM32\DRIVERS\FUJDRV.SYS"
+HKLM,System\CurrentControlSet\Services\FujDrv,DisplayName,,"Fujitsu ST3500 Windows NT Driver"
+HKLM,System\CurrentControlSet\Services\FujDrv,Group,,"Keyboard Port"
+
+
+[FujUtilityAddReg]
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce,FirstBoot,,"c:\winnt\lcddetct.exe"
+
+
+;-------------------------------------------------------------------------------
+; This section is referred to by [FujDriverRemove]. It removes all registry
+; entries created by [FujDriverAddReg].
+;-------------------------------------------------------------------------------
+[FujUtilityDelReg]
+HKLM,System\CurrentControlSet\Services\FujDrv
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents,FujUtility,Installed,,"0"
+
+
+;-------------------------------------------------------------------------------
+; User-visible strings for Internationalization
+;-------------------------------------------------------------------------------
+[Strings]
+; All translatable strings are placed in this section.
+FujUtilityDesc   = "Fujitsu Stylistic 3500 Windows NT Utilities"
+FujUtilityPrompt = "Install/Remove Fujitsu ST3500 Utilities for Windows NT"
+FPC              = "Fujitsu PC Corporation"
+
+
+

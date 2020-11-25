@@ -1,0 +1,222 @@
+;===============================================================================
+; Copyright 2000, Fujitsu Personal Systems Inc.
+;
+; File     : FUJPEN.INF
+;
+; Abstract : This is the Setup information file for installing the 
+;            Windows NT Pen Driver for Fujitsu's Pen Computers.
+; 
+;===============================================================================
+
+
+
+;-------------------------------------------------------------------------------
+; INF File Version Information
+;-------------------------------------------------------------------------------
+[version]
+signature="$Windows NT$"
+Provider=%FPC%
+
+;-------------------------------------------------------------------------------
+; This section denotes distribution disks and assocated Logical Disk
+; Identifiers (LDIDs).
+;
+; <LDID> = <desc. string key>, <disk label>, <disk ser. num.>
+;
+; All the pen driver files fit on one diskette.
+;-------------------------------------------------------------------------------
+[SourceDisksNames]
+1="NTPENDRIVER", "NTPENDRIVER", 0001
+
+;-------------------------------------------------------------------------------
+; This section lists all the filenames and filesizes on the one diskette.
+; Setup uses filesizes to calculate and display a "space needed" amount in
+; the UI.
+;
+; <filename> = <LDID>,,<filesize>
+;-------------------------------------------------------------------------------
+[SourceDisksFiles]
+FUJPEN.SYS     =1,,22252
+FUJPEN.INF     =1,,11215
+CALIBRAT.CPL   =1,,45056
+PENCAL.DLL     =1,,57344
+PENMON.EXE     =1,,28672
+
+;-------------------------------------------------------------------------------
+; This section defines the destination directories for each file-list section.
+; <file-list section> = <predefined directory identifier (DRID)>
+;
+; The following fields specify the destination of files being installed
+; (or uninstalled) for Pen Drivers for Windows NT
+;-------------------------------------------------------------------------------
+[DestinationDirs]
+PenDriverFiles		= 12	; Windows NT driver directory
+PenDriverInf  		= 17    ; Windows NT INF file directory
+PenUtilities        = 10    ; Windows NT directory
+PenDLLs             = 11    ; Windows NT system32 directory
+
+;-------------------------------------------------------------------------------
+; This section contains the names of the sections that contain information
+; about each optional component.
+;-------------------------------------------------------------------------------
+[Optional Components]
+PenDriver
+
+
+;-------------------------------------------------------------------------------
+; Description of the Optional Component being installed (and uninstalled)
+; by this INF file.
+;-------------------------------------------------------------------------------
+[PenDriver]
+OptionDesc      = %PenDriverDesc%
+Tip             = %PenDriverPrompt%
+IconIndex       = 4
+AddReg          = RegisterPenDriverAddReg, PenDriverAddReg
+DelReg          = 
+DelFiles        = 
+CopyFiles       = PenDriverFiles, PenDriverInf, PenUtilities, PenDLLs
+UpdateInis      = 
+UpdateIniFields = 
+Uninstall       = PenDriverRemove
+Reboot          = 1
+
+[PenDriverRemove]
+DelFiles        = PenDriverFiles, PenDriverInf, PenUtilities, PenDLLs
+DelReg          = PenDriverDelReg
+UpdateInis      = 
+UpdateIniFields = 
+Reboot          = 1
+ 
+
+;-------------------------------------------------------------------------------
+; This section copies the fujpen.inf file to the harddisk so Setup can
+; use it later for uninstall.
+;-------------------------------------------------------------------------------
+[PenDriverInf]
+fujpen.inf,,,1
+
+;-------------------------------------------------------------------------------
+; This section copies the Pen Driver (fujpen.sys) to the Windows NT Drivers
+; directory on the hard disk
+;-------------------------------------------------------------------------------
+[PenDriverFiles]
+fujpen.sys,,,1
+
+;-------------------------------------------------------------------------------
+; This section copies the Pen Utility files to the Windows NT directory on the 
+; hard disk
+;-------------------------------------------------------------------------------
+[PenUtilities]
+penmon.exe,,,1
+
+;-------------------------------------------------------------------------------
+; This section copies the Pen DLL files to the Windows NT System32
+; directory on the hard disk
+;-------------------------------------------------------------------------------
+[PenDLLs]
+calibrat.cpl,,,1
+pencal.dll,,,1
+
+;-------------------------------------------------------------------------------
+; This section establishes the registry keys that Setup needs to install and
+; uninstall the pen services option.
+;-------------------------------------------------------------------------------
+[RegisterPenDriverAddReg]
+; Create Registry entries for Maint Mode Setup
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents,"PenDriver",,"PenDriver"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\PenDriver,INF,,"fujpen.inf"
+; This optional component's [Optional Component's] section name.
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\PenDriver,Section,,"PenDriver"
+; The default for maintenance mode setup is to mark this component
+; as installed.
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents\PenDriver,Installed,,"1"
+
+
+[PenDriverAddReg]
+HKLM,System\CurrentControlSet\Services\PenDrv,Start,0x00010001,1
+HKLM,System\CurrentControlSet\Services\PenDrv,Type,0x00010001,1
+HKLM,System\CurrentControlSet\Services\PenDrv,Tag,0x00010001,2
+HKLM,System\CurrentControlSet\Services\PenDrv,ImagePath,,"SYSTEM32\DRIVERS\FUJPEN.SYS"
+HKLM,System\CurrentControlSet\Services\PenDrv,DisplayName,,"Fujitsu Stylistic 3400 Pen Driver"
+HKLM,System\CurrentControlSet\Services\PenDrv,Group,,"Keyboard Port"
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters,MachineType,,"Fujitsu Stylistic 3400"
+
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters,PenPacketQueueLength,1,40,00,00,00
+
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters,TotalScreenTypes,1,02,00,00,00
+
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters,DefaultDisplayMode,1,01,00,00,00
+
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters,HardwareInfo,1, \
+68,FD,00,00, 08,00,00,00, 05,00,00,00, 85,00,00,00, 01,00,00,00, 80,25,00,00, \
+03,00,00,00, 00,00,00,00, 00,00,00,00, 00,00,00,00, 00,00,00,00, 00,00,00,00
+
+; Calibration Table for Screen Type 0 (SVGA screen)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0,TotalDisplayModes,1,04,00,00,00
+
+; Screen Type 0, Display Mode 0 (SVGA Display Resolution: 640 x 480)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\0,DisplayInfo,1, 80,02,00,00, E0,01,00,00, 02,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\0,TabletDimensions,1, C0,01,00,00, C0,01,00,00, 40,0E,00,00, 40,0E,00,00
+
+; Screen Type 0, Display Mode 1 (SVGA Display Resolution: 800 x 600)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\1,DisplayInfo,1, 20,03,00,00, 58,02,00,00, 01,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\1,TabletDimensions,1, 00,00,00,00, 00,00,00,00, 00,10,00,00, 00,10,00,00
+
+
+; Screen Type 0, Display Mode 2 (SVGA Display Resolution: 1024 x 768)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\2,DisplayInfo,1, 00,04,00,00, 00,03,00,00, 04,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\2,TabletDimensions,1, 00,00,00,00, 00,00,00,00, 7A,14,00,00, 7A,14,00,00
+
+
+; Screen Type 0, Display Mode 3 (SVGA Display Resolution: 1280 x 1024)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\3,DisplayInfo,1, 00,05,00,00, 00,04,00,00, 04,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\0\DisplayMode\3,TabletDimensions,1, 00,00,00,00, 00,00,00,00, 99,19,00,00, 4E,1B,00,00
+
+
+
+; Calibration Table for Screen Type 1 (XGA screen)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1,TotalDisplayModes,1,04,00,00,00
+
+; Screen Type 1, Display Mode 0 (XGA Display Resolution: 640 x 480)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\0,DisplayInfo,1, 80,02,00,00, E0,01,00,00, 02,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\0,TabletDimensions,1, 00,03,00,00, 00,03,00,00, 00,0D,00,00, 00,0D,00,00
+
+
+; Screen Type 1, Display Mode 1 (XGA Display Resolution: 800 x 600)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\1,DisplayInfo,1, 20,03,00,00, 58,02,00,00, 02,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\1,TabletDimensions,1, C0,01,00,00, C0,01,00,00, 40,0E,00,00, 40,0E,00,00
+
+
+; Screen Type 1, Display Mode 2 (XGA Display Resolution: 1024 x 768)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\2,DisplayInfo,1, 00,04,00,00, 00,03,00,00, 01,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\2,TabletDimensions,1, 00,00,00,00, 00,00,00,00, 00,10,00,00, 00,10,00,00
+
+
+; Screen Type 1, Display Mode 3 (XGA Display Resolution: 1280 x 1024)
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\3,DisplayInfo,1, 00,05,00,00, 00,04,00,00, 04,00,00,00
+HKLM,System\CurrentControlSet\Services\PenDrv\Parameters\Calibration\ScreenType\1\DisplayMode\3,TabletDimensions,1, 00,00,00,00, 00,00,00,00, 00,14,00,00, 55,15,00,00
+
+; Add the pen tablet display monitor entry to the Run entry in the registry
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Run,PenMon,,"c:\winnt\penmon.exe"
+
+;-------------------------------------------------------------------------------
+; This section is referred to by [PenDriverRemove]. It removes all registry
+; entries created by [PenDriverAddReg].
+;-------------------------------------------------------------------------------
+[PenDriverDelReg]
+HKLM,System\CurrentControlSet\Services\PenDrv
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OptionalComponents,PenDriver,Installed,,"0"
+HKLM,SOFTWARE\Microsoft\Windows\CurrentVersion\Run,PenMon,,""
+
+
+;-------------------------------------------------------------------------------
+; User-visible strings for Internationalization
+;-------------------------------------------------------------------------------
+[Strings]
+; All translatable strings are placed in this section.
+PenDriverDesc   = "Fujitsu Stylistic 3400 Pen Driver"
+PenDriverPrompt = "Fujitsu Stylistic 3400 Pen Driver for Windows NT"
+FPC             = "Fujitsu PC Corporation"
+
+
+

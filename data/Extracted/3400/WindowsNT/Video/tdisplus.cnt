@@ -1,0 +1,14 @@
+:Base tdisplus.HLP
+:Title Trident Display Properties
+1 Trident Display Utility
+2 Display Device Page
+3 Display Device Page for Windows 95/NT4.0=Win95DevPage
+3 Display Device Page for Windows 98/NT5.0=Win98DevPage
+2 Television Page
+3 Television Page=Digital_TV_Page
+2 Color Page
+3 Color Page=Gamma_Correction_Page
+2 Flat Panel Page
+3 Flat Panel Page=HIDC_EXPANSION
+2 Video Page
+3 Video Page=Video_Strings

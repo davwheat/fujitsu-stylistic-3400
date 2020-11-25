@@ -1,0 +1,731 @@
+;*******************************************************************************
+;*                                                                            **
+;*                     I N T E L   P R O P R I E T A R Y                      **
+;*                                                                            **
+;*   COPYRIGHT (c) 1993-2000 BY INTEL CORPORATION. ALL RIGHTS RESERVED.  NO   **
+;*   PART  OF  THIS  PROGRAM OR PUBLICATION MAY BE REPRODUCED, TRANSMITTED,   **
+;*   TRANSCRIBED, STORED IN A RETRIEVAL  SYSTEM,  OR  TRANSLATED  INTO  ANY   **
+;*   LANGUAGE OR COMPUTER LANGUAGE IN ANY FORM OR BY ANY MEANS, ELECTRONIC,   **
+;*   MECHANICAL, MAGNETIC, OPTICAL, CHEMICAL, MANUAL, OR OTHERWISE, WITHOUT   **
+;*   THE PRIOR WRITTEN PERMISSION OF :                                        **
+;*                                                                            **
+;*                             INTEL CORPORATION                              **
+;*                                                                            **
+;*                          2200 MISSION COLLEGE BLVD                         **
+;*                                                                            **
+;*                     SANTA CLARA, CALIFORNIA 95052-8119                     **
+;*                                                                            **
+;*******************************************************************************
+;***********************************************************************
+; Windows NT OEMSETUP.INF for
+;
+;		Intel(R) PRO/100+ PCI Adapter
+;
+; Copyright© 1994-2000 Intel Corporation.  All rights reserved.
+;***********************************************************************
+; $Revision: 24 $
+;
+;***********************************************************************
+; Define NMS Service File Constants
+;***********************************************************************
+[NMSService-FileConstants]
+	NMSSvc        = "NMSSvc.exe"
+	NMSSvcPS      = "NMSSvcPS.dll"
+	NMSErrMsg     = "NMSMsg.dll"
+	NMSAPI        = "NMSAPI.dll"
+	NMSCfg        = "NMSCFG.sys"
+	NMSDD         = "NMSDD.sys"
+	RegSvr32      = "RegSvr32.exe"
+
+;***********************************************************************
+; Define PROSet constants
+;***********************************************************************
+[FileConstants]
+	Manufacturer  = "Intel"
+	ModemEnabler  = "Cbmodem.sys"
+	NDIS3         = "E100b.sys"
+	NDIS4         = "E100bnt.sys"
+	IANS          = "iANSNT4.sys"
+	IANSE         = "iANSNT4e.sys"
+	IANSN         = "iANSNT4n.sys"
+	PROSet        = "PROSetp.cpl"
+	PROMon        = "PROMon.exe"
+	PROSetHelp    = "PROSetp.hlp"
+	PROSetCnt     = "PROSetp.cnt"
+	PROSetOld     = "PROSet.cpl"
+	PROSetReg     = "PROSetp.reg"
+	iAFT          = "iAFT.sys"
+	iVLAN         = "iVLAN.sys"
+
+	ProCaption   = "Windows NT Setup"
+	ProCancel    = "Cancel"
+	ProCancelMsg = "Windows NT Networking is not correctly installed.  "+
+			"Are you sure you want to cancel copying files?"
+	ProCancelCap = "Network Setup Message"
+	ProText1     = "Copying:"
+	ProText2     = "To:"
+
+	AFTService   = "SOFTWARE\Intel\iAFT"
+	VLANService  = "SOFTWARE\Intel\iVLANMiniport"
+	AFTWarning   = "Setup detected that you have some adapter teams and/or VLANs that are no longer supported.  "+
+			"These teams and VLANs will be converted to supported teams and VLANs.  Are you sure you want to continue?"
+
+	UnAttAdapterSwitch = "ALL"
+;		Note: UnAttAdapterSwitch allows unattend installs to install only
+;             a single interface in a multi-inteface environment.
+;             ALL - Install all supported interfaces (normal)
+;             INTERFACE:x - Installs the xth supported interface.
+;             DEVICE:x:y<:z> - Installs a supported adapter found at
+;                  bus x, device y, function z  (z is 0 by default)
+
+;***********************************************************************
+; Define legacy PROSet File Constants
+;***********************************************************************
+[PROSetLegacyFileConstants]
+	PROSetLegacy  = "PROSet.exe"
+	PROKdd        = "PROKdd.sys"
+
+;***********************************************************************
+; Define old PROSet Plus File Constants
+;***********************************************************************
+[PROSetPlusFileConstants]
+	PROSetP       = "PROSetp.cpl"
+	PROSetPHelp   = "PROSetp.hlp"
+	PROSetPCnt    = "PROSetp.cnt"
+	PROSetOld     = "PROSet.cpl"
+	PROKddp	      = "PROKddp.sys"
+	PROdd         = "PROdd.sys"
+
+;***********************************************************************
+; Define file source constants.  
+;***********************************************************************
+[NMSService-FileConstants-Src]
+	NMSSvcSrc       = "NMSSvc.ex_"
+	NMSSvcPSSrc     = "NMSSvcPS.dl_"
+	NMSAPISrc       = "NMSAPI.dl_"
+	NMSErrMsgSrc    = "NMSMsg.dl_"
+	NMSCfgSrc       = "NMSCfg.sy_"
+	NMSDDSrc        = "NMSDD.sy_"
+	RegSvr32Src	    = "RegSvr32.ex_"
+	NMSSvcSrcNC     = "NMSSvc.exe"
+	NMSSvcPSSrcNC   = "NMSSvcPS.dll"
+	NMSAPISrcNC     = "NMSAPI.dll"
+	NMSErrMsgSrcNC  = "NMSMsg.dll"
+	NMSCfgSrcNC     = "NMSCfg.sys"
+	NMSDDSrcNC      = "NMSDD.sys"
+	RegSvr32SrcNC   = "RegSvr32.exe"
+
+[FileConstants-Src]
+	ModemEnablerSrc = "Cbmodem.sy_"
+	ModemEnablerSrcNC = "Cbmodem.sys"
+	NDIS3Src        = "E100b.sy_"
+	NDIS3SrcNC      = "E100b.sys"
+	NDIS4Src        = "E100bnt.sys"
+	IANSSrcNC       = "iANSNT4.sys"
+	IANSESrcNC      = "iANSNT4e.sys"
+	IANSNSrcNC      = "iANSNT4n.sys"
+	IANSSrc         = "iANSNT4.sy_"
+	IANSESrc        = "iANSNT4e.sy_"
+	IANSNSrc        = "iANSNT4n.sy_"
+	PROSetSrc       = "PROSetp.cp_"
+	PROMonSrc       = "PROMon.ex_"
+	PROSetHelpSrc   = "PROSetp.hl_"
+	PROSetCntSrc    = "PROSetp.cn_"
+	PROSetRegSrc	= "PROSetp.re_"
+	PROSetSrcNC     = "PROSetp.cpl"
+	PROMonSrcNC     = "PROMon.exe"
+	PROSetHelpSrcNC = "PROSetp.hlp"
+	PROSetCntSrcNC  = "PROSetp.cnt"
+	PROSetRegSrcNC  = "PROSetp.reg"
+
+;***********************************************************************
+; Detect sections
+;***********************************************************************
+[DetectConstants]
+OSName = {} ? $(PROSet) PROSetGetOSVersion
+
+;***********************************************************************
+; Define Option
+;***********************************************************************
+[Options]
+	E100B
+	E100BEXP
+	E100BPCI
+	E10PPCI
+	E100BRWA
+
+[OptionsText]
+	E100B = "Intel(R) PRO Adapter"
+
+[Source Media Descriptions]
+	1 = "Intel PRO Adapter CD-ROM or floppy disk", TAGFILE = E100bnt.sys
+
+;***********************************************************************
+; Returns information to Setup about the type of driver or drivers that
+; can be installed by this INF file.
+;***********************************************************************
+[Identify]
+	Return STATUS_SUCCESSFUL NetAdapter ""
+
+;***********************************************************************
+; This section returns information to the Setup program, listing the 
+; names of any drivers that can be installed by this INF file. It also 
+; returns the text strings for each driver (in the requested language) 
+; to be used in the dialog box that asks the user to select the driver
+; to install. 
+;***********************************************************************
+[ReturnOptions]
+	Set Status         = STATUS_SUCCESSFUL
+	Set OptionList     = ^(Options, 1)
+	Set OptionTextList = ^(OptionsText, 1)
+
+	IfStr(i) $($1) != ""
+		IfContains(i) $($1) not-in "PCI"
+			Set Status         = STATUS_NOTSUPPORTED
+			Set OptionList     = {}
+			Set OptionTextList = {}
+		EndIf
+	EndIf
+
+	Return $(Status) $(OptionList) $(OptionTextList)
+
+;***********************************************************************
+; If the [ReturnOptions] section returns successfully, indicating the
+; language is supported, Setup displays a dialog box from which the user
+; can select a driver to install. If the user proceeds with the
+; installation, Setup calls the [InstallOption] section.
+;***********************************************************************
+[InstallOption]
+	Set Option   = $($1)
+	Set SrcDir   = $($2)
+	Set AddCopy  = $($3)
+	Set DoCopy   = $($4)
+	Set DoConfig = $($5)
+
+	read-syms FileConstants
+	read-syms NMSService-FileConstants
+	read-syms FileConstants-Src
+	read-syms NMSService-FileConstants-Src
+	read-syms PROSetLegacyFileConstants
+	read-syms PROSetPlusFileConstants
+
+	Set DetectAFTs = 0
+
+	IfStr(i) $(!NTN_InstallMode) == deinstall
+		Set StartLabel = RemoveAdapter
+
+	Else-IfStr(i) $(!NTN_InstallMode) == update
+		Set StartLabel = UpdateAdapters
+		Set DetectAFTs = 1;
+
+	Else-IfStr(i) $(!NTN_InstallMode) == bind
+		Set StartLabel = BindingReview
+
+	Else-IfStr(i) $(!NTN_InstallMode) == configure
+		Set StartLabel = ConfigureAdapter
+
+	Else-IfStr(i) $(!NTN_InstallMode) == install
+		Set StartLabel = InstallAdapters
+		Set DetectAFTs = 1;
+
+	EndIf
+
+	Set from = FatalError
+	Set to   = FatalError
+
+	IfInt $(DetectAFTs) == 1
+		; Check to see if there are AFT (obsolete) teams in the system
+		; by looking for the existence of AFT service, "iAFT"
+		OpenRegKey $(!REG_H_LOCAL) "" $(AFTService) $(!REG_KEY_READ) hAFTService
+		OpenRegKey $(!REG_H_LOCAL) "" $(VLANService) $(!REG_KEY_READ) hVLANService
+
+		IfStr(i) $(hAFTService) != ""
+			Set OldTeamVLANWarning = 1
+		EndIf
+
+		IfStr(i) $(hVLANService) != ""
+			Set OldTeamVLANWarning = 1
+		EndIf
+
+		IfInt $(OldTeamVLANWarning) == 1
+		; Display a warning messgae
+			Shell "Subroutn.Inf" SetupMessage $(!STF_LANGUAGE) "WARNING" $(AFTWarning)
+			ifstr(i) $($R0) != STATUS_SUCCESSFUL
+				return FAILED
+			endif
+			ifstr(i) $($R1) == "CANCEL"
+				return FAILED
+			endif
+		EndIf
+	EndIf
+
+	Goto $(StartLabel)
+
+;***********************************************************************
+; Called when the user clicks the Add button in the NCPA.
+;***********************************************************************
+InstallAdapters = +
+
+	Install "Install-PROSet"
+
+	detect DetectConstants
+
+	Install "Install-Option"
+
+	LoadLibrary "" $(!STF_WINDOWSSYSPATH)\$(PROSet) hLib
+	LibraryProcedure DllExitStr $(hLib) InstallAdapters +
+		$(Option), $(PROMon), $(STF_CONTEXTINFNAME), +
+		$(!NetCardParameterName), $(!NetCardParameterValue), +
+		$(!STF_GUI_UNATTENDED), $(SrcDir), $(UnAttAdapterSwitch)
+
+	FreeLibrary $(hLib)
+
+	Ifstr(i) $(DllExitStr) == "ERROR"
+		return STATUS_USERCANCEL
+	EndIf
+
+	Install "Install-PROSet-More"
+
+	; Remove old files
+	Install "Install-Remove-PROSet-Legacy"
+	Install "Install-Remove-PROSet-Plus"
+
+	return STATUS_SUCCESSFUL
+
+;***********************************************************************
+; Called when the user clicks the Update button in the NCPA.
+;***********************************************************************
+UpdateAdapters = +
+
+	Install "Install-PROSet"
+
+	detect DetectConstants
+
+	Install "Install-Option"
+
+	LoadLibrary "" $(!STF_WINDOWSSYSPATH)\$(PROSet) hLib
+	LibraryProcedure DllExitStr $(hLib) UpdateAdapters +
+		$(PROMon), $(!NTN_RegBase), $(SrcDir)
+	FreeLibrary $(hLib)
+
+	Ifstr(i) $(DllExitStr) == "ERROR"
+		return STATUS_USERCANCEL
+	EndIf
+
+	Set NewInfName = $(DllExitStr)
+
+	Install "Install-PROSet-More"
+
+	; Remove old PROSet Plus files
+	Install "Install-Remove-PROSet-Legacy"
+	Install "Install-Remove-PROSet-Plus"
+
+	return STATUS_SUCCESSFUL
+
+;***********************************************************************
+; Called when the binding engine runs and the software component has a
+; Review = 1 flag in the CurrentVersion key of the software component
+; key.
+;***********************************************************************
+BindingReview = +
+
+	LoadLibrary "" $(!STF_WINDOWSSYSPATH)\$(PROSet) hLib
+	LibraryProcedure DllExitStr $(hLib) BindingReview $(Option)
+	FreeLibrary $(hLib)
+	
+	return STATUS_SUCCESSFUL
+
+;***********************************************************************
+; Called when user clicks the Remove button on the NCPA to remove an
+; adapter.  We only need to remove the hardware components; the NCPA
+; will remove the software component when the last hardware component
+; is removed.  This function is also used to remove adapter teams.
+;***********************************************************************
+RemoveAdapter = +
+
+	;***************************************************************
+	; Application specific emulation of RemoveAdapter operation.
+	;***************************************************************
+	Ifstr(i) $(!NTN_RegBase) == "CLEANUP"
+		Install "Install-Cleanup"
+		Install "Install-PROMon-Cleanup"
+
+		LoadLibrary "" $(!STF_WINDOWSSYSPATH)\$(PROSet) hLib
+		LibraryProcedure UnregNMSExitStr $(hLib) UnregisterNMS +
+			$(Option), $(!NTN_RegBase)
+		FreeLibrary $(hLib)
+		Install "NMS-Cleanup"
+
+		return STATUS_SUCCESSFUL
+	EndIf
+
+	;***************************************************************
+	; Operation initiated by the NCPA
+	;***************************************************************
+	LoadLibrary "" $(!STF_WINDOWSSYSPATH)\$(PROSet) hLib
+	LibraryProcedure DllExitStr $(hLib) RemoveAdapter +
+		$(Option), $(!NTN_RegBase)
+
+	Ifstr(i) $(DllExitStr) == "CLEANUP"
+		LibraryProcedure UnregNMSExitStr $(hLib) UnregisterNMS +
+			$(Option), $(!NTN_RegBase)
+	EndIf
+
+	FreeLibrary $(hLib)
+
+	Ifstr(i) $(DllExitStr) == "ERROR"
+		return STATUS_USERCANCEL
+	EndIf
+
+	; Remove PROSet files
+	Ifstr(i) $(DllExitStr) == "CLEANUP"
+		Install "Install-Cleanup"
+		Install "Install-PROMon-Cleanup"
+	EndIf
+
+	; Remove NMS files
+	Ifstr(i) $(UnregNMSExitStr) == "CLEANUP"
+		Install "NMS-Cleanup"
+	EndIf
+	
+	return STATUS_SUCCESSFUL
+
+;***********************************************************************
+; Called when the user selects Properties button on an adapter.
+;***********************************************************************
+ConfigureAdapter = +
+	
+	LoadLibrary "" $(!STF_WINDOWSSYSPATH)\$(PROSet) hLib
+	LibraryProcedure DllExitStr $(hLib) DLLEntry +
+		$(!NTN_RegBase), $(Option)
+	FreeLibrary $(hLib)
+
+	Ifstr(i) $(DllExitStr) == "REBOOT"
+		return STATUS_SUCCESSFUL
+	EndIf
+
+	return STATUS_USERCANCEL
+
+;***********************************************************************
+; Something's busted!
+;***********************************************************************
+FatalError = +
+
+	return STATUS_FAILED
+
+;***********************************************************************
+; Install the PROSet files.
+;***********************************************************************
+[Install-PROSet]
+	Set STF_VITAL = 1
+	Set STF_OVERWRITE	 = "VERIFYSOURCEOLDER"
+
+	set FileToCheck = $(SrcDir)$(PROSetSrcNC)
+	LibraryProcedure UnCompressedFiles,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+	Ifstr(i) $(UnCompressedFiles) == "YES"
+		AddSectionFilesToCopyList Files-NMSService-Drivers-NC $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)\drivers
+		AddSectionFilesToCopyList Files-NMSService-System-NC $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)
+		AddSectionFilesToCopyList Files-PROSet-System-NC $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)
+	Else
+		AddSectionFilesToCopyList Files-NMSService-Drivers $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)\drivers
+		AddSectionFilesToCopyList Files-NMSService-System $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)
+		AddSectionFilesToCopyList Files-PROSet-System $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)
+	Endif
+
+	Set !STF_NCPA_FLUSH_COPYLIST = 1
+	CopyFilesInCopyList
+
+	Exit
+
+[Files-NMSService-Drivers]
+	1, $(NMSCfgSrc),     SIZE=50000, RENAME=$(NMSCfg)
+	1, $(NMSDDSrc),      SIZE=50000, RENAME=$(NMSDD)
+
+[Files-NMSService-System]
+	1, $(NMSSvcSrc),     SIZE=50000, RENAME=$(NMSSvc)
+	1, $(NMSSvcPSSrc),   SIZE=50000, RENAME=$(NMSSvcPS)
+	1, $(NMSErrMsgSrc),  SIZE=50000, RENAME=$(NMSErrMsg)
+	1, $(NMSAPISrc),     SIZE=50000, RENAME=$(NMSAPI)
+	1, $(RegSvr32Src),   SIZE=50000, RENAME=$(RegSvr32), OVERWRITE=NEVER
+
+[Files-PROSet-System]
+	1, $(PROSetSrc),     SIZE=50000, RENAME=$(PROSet)
+	1, $(PROMonSrc),     SIZE=50000, RENAME=$(PROMon)
+	1, $(PROSetHelpSrc), SIZE=50000, RENAME=$(PROSetHelp)
+	1, $(PROSetCntSrc),  SIZE=50000, RENAME=$(PROSetCnt)
+
+[Files-NMSService-Drivers-NC]
+	1, $(NMSCfgSrcNC),     SIZE=50000, RENAME=$(NMSCfg)
+	1, $(NMSDDSrcNC),      SIZE=50000, RENAME=$(NMSDD)
+
+[Files-NMSService-System-NC]
+	1, $(NMSSvcSrcNC),     SIZE=50000, RENAME=$(NMSSvc)
+	1, $(NMSSvcPSSrcNC),   SIZE=50000, RENAME=$(NMSSvcPS)
+	1, $(NMSErrMsgSrcNC),  SIZE=50000, RENAME=$(NMSErrMsg)
+	1, $(NMSAPISrcNC),     SIZE=50000, RENAME=$(NMSAPI)
+	1, $(RegSvr32SrcNC),   SIZE=50000, RENAME=$(RegSvr32), OVERWRITE=NEVER
+
+[Files-PROSet-System-NC]
+	1, $(PROSetSrcNC),     SIZE=50000, RENAME=$(PROSet)
+	1, $(PROMonSrcNC),     SIZE=50000, RENAME=$(PROMon)
+	1, $(PROSetHelpSrcNC), SIZE=50000, RENAME=$(PROSetHelp)
+	1, $(PROSetCntSrcNC),  SIZE=50000, RENAME=$(PROSetCnt)
+
+;***********************************************************************
+; Finish up the install of PROSet
+;***********************************************************************
+[Install-PROSet-More]
+
+	IfStr(i) $(NewInfName) != ""
+		AddSectionFilesToCopyList Files-Option-Inf $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)
+
+	EndIf
+
+	Set !STF_NCPA_FLUSH_COPYLIST = 1
+	CopyFilesInCopyList
+
+	; Install PROMon to run each time NT 4 starts
+	IfStr(i) $(OSName) == "NT4"
+		OpenRegKey $(!REG_H_LOCAL) "" +
+			"SOFTWARE\Microsoft\Windows\CurrentVersion\Run" +
+			$(!REG_KEY_SET_VALUE) KeyWinRun
+		SetRegValue $(KeyWinRun) {$(PROMon), 0, $(!REG_VT_SZ), $(PROMon)}
+		CloseRegKey $(KeyWinRun)
+	EndIf
+
+	Exit
+
+;***********************************************************************
+; Remove PROMon hook
+;***********************************************************************
+[Install-PROMon-Cleanup]
+
+	OpenRegKey $(!REG_H_LOCAL) "" +
+		"SOFTWARE\Microsoft\Windows\CurrentVersion\Run" +
+		$(!REG_KEY_SET_VALUE) KeyWinRun
+	DeleteRegValue $(KeyWinRun) $(PROMon)
+	CloseRegKey $(KeyWinRun)
+
+	Exit
+
+;***********************************************************************
+; Install the Option files.
+;***********************************************************************
+[Install-Option]
+	Set STF_VITAL = 1
+	Set STF_OVERWRITE = "VERIFYSOURCEOLDER"
+
+	; Prior to installing the drivers, lets see if the install media has the ANS driver
+
+	set FileToCheck = $(SrcDir)$(PROSetSrcNC)
+	LibraryProcedure UnCompressedFiles,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+	IfStr(i) $(OSName) == "NT4"
+		Ifstr(i) $(UnCompressedFiles) == "YES"
+			set FileToCheck = $(SrcDir)$(ModemEnablerSrcNC)
+			LibraryProcedure ModemEnablerFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(IANSSrcNC)
+			LibraryProcedure AnsFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(IANSESrcNC)
+			LibraryProcedure AnsEFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(IANSNSrcNC)
+			LibraryProcedure AnsNFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(PROSetRegSrcNC)
+			LibraryProcedure ProsetRegFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			Ifstr(i) $(ModemEnablerFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-ModemEnabler-NC $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(AnsFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-Ans-NC $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(AnsEFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-AnsE-NC $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(AnsNFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-AnsN-NC $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(ProsetRegFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Reg-NC $(SrcDir) $(!STF_WINDOWSSYSPATH)
+			Endif
+		Else
+			set FileToCheck = $(SrcDir)$(ModemEnablerSrc)
+			LibraryProcedure ModemEnablerFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(IANSSrc)
+			LibraryProcedure AnsFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(IANSESrc)
+			LibraryProcedure AnsEFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(IANSNSrc)
+			LibraryProcedure AnsNFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			set FileToCheck = $(SrcDir)$(PROSetRegSrc)
+			LibraryProcedure ProsetRegFilePresent,$(!LIBHANDLE), CheckFileExistance $(FileToCheck)
+
+			Ifstr(i) $(ModemEnablerFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-ModemEnabler $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(AnsFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-Ans $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(AnsEFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-AnsE $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(AnsNFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Drivers-NT4-AnsN $(SrcDir) $(!STF_WINDOWSSYSPATH)\drivers
+			Endif
+
+			Ifstr(i) $(ProsetRegFilePresent) == "YES"
+				AddSectionFilesToCopyList Files-Option-Reg $(SrcDir) $(!STF_WINDOWSSYSPATH)
+			Endif
+		Endif
+
+
+	Endif
+
+	Ifstr(i) $(UnCompressedFiles) == "YES"
+		Set FilesOptionDrivers = "Files-Option-Drivers-NC-"$(OSName)
+
+		AddSectionFilesToCopyList $(FilesOptionDrivers) $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)\drivers
+	Else
+		Set FilesOptionDrivers = "Files-Option-Drivers-"$(OSName)
+
+		AddSectionFilesToCopyList $(FilesOptionDrivers) $(SrcDir) +
+			$(!STF_WINDOWSSYSPATH)\drivers
+	EndIf
+		
+	Set !STF_NCPA_FLUSH_COPYLIST = 1
+	CopyFilesInCopyList
+
+	IfStr(i) $(OSName) == "NT4"
+		Ifstr(i) $(ProsetRegFilePresent) == "YES"
+			RunProgram ExitCode "" "" $(!STF_WINDOWSPATH)\REGEDIT.EXE /S $(PROSetReg)
+		EndIf
+	EndIf
+	Exit
+
+[Files-Option-Drivers-NT351]
+	1, $(NDIS3Src), SIZE=50000, RENAME=$(NDIS3)
+
+[Files-Option-Drivers-NT4]
+	1, $(NDIS4Src), SIZE=50000, RENAME=$(NDIS4)
+
+[Files-Option-Drivers-NT4-ModemEnabler]
+	1, $(ModemEnablerSrc), SIZE=50000, RENAME=$(ModemEnabler)
+
+[Files-Option-Drivers-NT4-Ans]
+	1, $(IANSSrc),  SIZE=50000, RENAME=$(IANS)
+
+[Files-Option-Drivers-NT4-AnsE]
+	1, $(IANSESrc),  SIZE=50000, RENAME=$(IANSE)
+
+[Files-Option-Drivers-NT4-AnsN]
+	1, $(IANSNSrc),  SIZE=50000, RENAME=$(IANSN)
+
+[Files-Option-Inf]
+	1, OEMSETUP.INF,   SIZE=50000, RENAME=$(NewInfName), +
+		OVERWRITE=ALWAYS
+
+[Files-Option-Reg]
+	1, $(PROSetRegSrc),  SIZE=50000, RENAME=$(PROSetReg)	
+
+[Files-Option-Drivers-NC-NT351]
+	1, $(NDIS3SrcNC), SIZE=50000, RENAME=$(NDIS3)
+
+[Files-Option-Drivers-NC-NT4]
+	1, $(NDIS4Src), SIZE=50000, RENAME=$(NDIS4)
+
+[Files-Option-Drivers-NT4-ModemEnabler-NC]
+	1, $(ModemEnablerSrcNC), SIZE=50000, RENAME=$(ModemEnabler)
+
+[Files-Option-Drivers-NT4-Ans-NC]
+	1, $(IANSSrcNC),  SIZE=50000, RENAME=$(IANS)
+
+[Files-Option-Drivers-NT4-AnsE-NC]
+	1, $(IANSESrcNC),  SIZE=50000, RENAME=$(IANSE)
+
+[Files-Option-Drivers-NT4-AnsN-NC]
+	1, $(IANSNSrcNC),  SIZE=50000, RENAME=$(IANSN)
+
+[Files-Option-Reg-NC]
+	1, $(PROSetRegSrcNC),  SIZE=50000, RENAME=$(PROSetReg)	
+
+;***********************************************************************
+; Clean system of adapter files.
+;***********************************************************************
+[Install-Cleanup]
+
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(NDIS3)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(NDIS4)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(IANS)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(IANSE)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(IANSN)
+
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(PROSet)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(PROMon)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(PROSetHelp)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(PROSetCnt)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(PROSetReg)
+
+	Exit
+
+;***********************************************************************
+; Remove NMS files
+;***********************************************************************
+[NMS-Cleanup]
+
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(NMSCfg)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(NMSDD)
+
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(NMSSvc)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(NMSSvcPS)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(NMSErrMsg)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(NMSAPI)
+
+	Exit
+
+;***********************************************************************
+; Remove Legacy PROSet files
+;***********************************************************************
+[Install-Remove-PROSet-Legacy]
+
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(PROKdd)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(PROSetLegacy)
+
+	Exit
+
+;***********************************************************************
+; Remove old PROSet Plus files
+;***********************************************************************
+[Install-Remove-PROSet-Plus]
+
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(PROKddp)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(PROdd)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(iAFT)
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\drivers\$(iVLAN)
+
+	AddFileToDeleteList $(!STF_WINDOWSSYSPATH)\$(PROSetOld)
+
+	Exit

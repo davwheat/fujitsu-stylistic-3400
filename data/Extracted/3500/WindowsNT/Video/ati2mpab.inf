@@ -1,0 +1,454 @@
+; ATI Display Information file : ati2mpab.INF 
+; INF file for mach64 ATI2DRAB display driver.
+; Manufacturer:  ATI Technologies Inc.
+; Installation file for the ATI RAGE graphics adapter.
+; M6.10.126-T02_ej_Fujitsu
+;----------------------------------------------------------------------------
+
+[Version]
+Signature = "$CHICAGO$"
+Provider  = %ati%
+ClassGUID = {4D36E968-E325-11CE-BFC1-08002BE10318}
+Class     = Display
+
+[DestinationDirs]
+DefaultDestDir   = 11  ; system32
+ati2mpab.Miniport = 12  ; drivers
+ati2mpab.Display  = 11  ; system32
+ati2mpab.Desktop  = 11  ; system32
+ati2mpab.OpenGL   = 11  ; system32
+ati2mpab.Scrnsave  = 11  ; system32
+Uninstall.CopyFiles	= 11  
+
+;
+; Driver information
+;
+
+[Manufacturer]
+%ati% = ati2mpab.Mfg
+
+[ati2mpab.Mfg]
+%ati% Compatible display driver %L1%  = ati2mpab_ENU
+%ati% RAGE MOBILITY-M PCI %L1%       = ati2mpab_ENU
+%ati% RAGE MOBILITY-P PCI %L1%       = ati2mpab_ENU
+%ati% RAGE MOBILITY-P AGP %L1%       = ati2mpab_ENU
+%ati% RAGE MOBILITY-EC PCI %L1%       = ati2mpab_ENU
+
+%ati% Compatible display driver %L8%  = ati2mpab_JPN
+%ati% RAGE MOBILITY-M PCI %L8%       = ati2mpab_JPN
+%ati% RAGE MOBILITY-P PCI %L8%       = ati2mpab_JPN
+%ati% RAGE MOBILITY-P AGP %L8%       = ati2mpab_JPN
+%ati% RAGE MOBILITY-EC PCI %L8%       = ati2mpab_JPN
+
+
+;
+; ati2mpab general installation section
+; ------------------------------------
+
+[ati2mpab]
+CopyFiles=ati2mpab.Miniport,Uninstall.CopyFiles, ati2mpab.Display, ati2mpab.Desktop, ati2mpab.OpenGL, ati2mpab.Scrnsave
+AddReg=Uninstall.AddReg
+DelFiles=ati2mpab.DelFiles
+DelReg=ati2mpab.DelReg
+
+UninstallFiles=ati2mpab.Scrnsave, ati2mpab.Desktop
+UninstallReg=Uninstall.AddReg, ati2mpab_SoftwareDesktopSettings
+CleanFiles=Uninstall.CopyFiles, ati2mpab.Miniport, ati2mpab.Display, ati2mpab.OpenGL
+CleanService=ati2mpab.RemoveService
+
+[ati2mpab.RemoveService]
+ati2mpab
+Ati HotKey Poller
+
+[ati2mpab_ENU]
+CopyFiles=ati2mpab.Miniport,Uninstall.CopyFiles, ati2mpab.Display, ati2mpab.Desktop, ati2mpab.OpenGL,ati2mpab.Copy_ENU, ati2mpab.Scrnsave
+AddReg=Uninstall.AddReg
+DelFiles=ati2mpab.DelFiles
+DelReg=ati2mpab.DelReg
+
+UninstallFiles=ati2mpab.Scrnsave,ati2mpab.Copy_ENU, ati2mpab.Desktop
+UninstallReg=Uninstall.AddReg, ati2mpab_SoftwareDesktopSettings
+CleanFiles=Uninstall.CopyFiles, ati2mpab.Miniport, ati2mpab.Display, ati2mpab.OpenGL
+CleanService=ati2mpab.RemoveService
+
+[ati2mpab_JPN]
+CopyFiles=ati2mpab.Miniport, Uninstall.CopyFiles, ati2mpab.Display, ati2mpab.Desktop, ati2mpab.OpenGL, ati2mpab.Copy_JPN, ati2mpab.Scrnsave
+AddReg=Uninstall.AddReg
+DelFiles=ati2mpab.DelFiles
+DelReg=ati2mpab.DelReg
+
+UninstallFiles=ati2mpab.Scrnsave,ati2mpab.Copy_JPN, ati2mpab.Desktop
+UninstallReg=Uninstall.AddReg, ati2mpab_SoftwareDesktopSettings
+CleanFiles=Uninstall.CopyFiles, ati2mpab.Miniport, ati2mpab.Display, ati2mpab.OpenGL
+CleanService=ati2mpab.RemoveService
+
+;
+; File sections
+;
+[Uninstall.CopyFiles]
+atiiiexx.dll
+ati2mpab.inf
+
+[ati2mpab.Miniport]
+ati2mpab.sys
+
+[ati2mpab.Display]
+ati2drab.dll
+ati2plxx.exe
+atitvo32.dll
+
+[ati2mpab.Desktop]
+
+atipdsxx.dll
+atippaxx.dll
+atipuixx.dll
+atrpuixx.enu
+;atisserv.dll
+Atfenuxx.hlx
+Atmenuxx.hlx
+Attenuxx.hlx
+Atmenuxx.cnt
+atiptaxx.exe
+atrptaxx.enu
+atiphexx.exe
+Atrpdsxx.enu
+
+atiicdxx.dll
+atiicdxx.vxd
+atiicdxx.sys
+atricdxx.dft
+atiiprxx.exe
+atriprxx.dft
+
+[ati2mpab.OpenGL]
+ATION4AB.DLL
+
+[ati2mpab.Scrnsave]
+ssdpms.scr
+ssgpcdef.rsc
+ssgpcdef.hlp
+ssgpcjpn.rsc
+ssgpcjpn.hlp
+
+[ati2mpab.Copy_ENU]
+
+[ati2mpab.Copy_JPN]
+atriprxx.JPN
+atrptaxx.JPN
+atrpuixx.JPN
+atrpdsxx.JPN
+ATFJPNxx.hlx
+ATMJPNxx.hlx
+ATTJPNxx.hlx
+ATMJPNxx.cnt
+
+[ati2mpab.DelFiles]
+;%11%\atrpuixx.enu
+;%11%\atrptaxx.enu
+;%11%\atrpuixx.JPN
+;%11%\atrptaxx.JPN
+
+[ati2mpab.DelReg]
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\TempPages"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",Atitask
+HKLM,"SOFTWARE\ATI Technologies\Desktop\IconTA"
+HKLM,"Software\Microsoft\Windows NT\CurrentVersion\OpenGLDrivers\ATI ICD Settings"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\ATIPagesEx",,,"{700B1221-CAFF-11d1-B9DE-000000001B1B}"
+
+;
+; Service installation
+;
+
+[ati2mpab.Services]
+AddService = ati2mpab, 0x00000002, ati2mpab_Generic_Service_Inst, ati2mpab_EventLog_Inst
+AddService=Ati HotKey Poller,, ati2plxx_Generic_Service_Inst, ati2plxx_EventLog_Inst
+
+[ati2mpab_ENU.Services]
+AddService=ati2mpab, 0x00000002, ati2mpab_Generic_Service_Inst, ati2mpab_EventLog_Inst
+AddService=Ati HotKey Poller,, ati2plxx_Generic_Service_Inst, ati2plxx_EventLog_Inst
+[ati2mpab_JPN.Services]
+AddService=ati2mpab, 0x00000002, ati2mpab_Generic_Service_Inst, ati2mpab_EventLog_Inst
+AddService=Ati HotKey Poller,, ati2plxx_Generic_Service_Inst, ati2plxx_EventLog_Inst
+ 
+[ati2mpab_EventLog_Inst]
+AddReg=ati2mpab_EventLog_AddReg
+
+[ati2mpab_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%SystemRoot%\System32\IoLogMsg.dll;%SystemRoot%\System32\drivers\ati2mpab.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[ati2mpab_Generic_Service_Inst]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 1                  ; SERVICE_SYSTEM_START
+ErrorControl   = 0                  ; SERVICE_ERROR_IGNORE
+LoadOrderGroup = Video
+ServiceBinary  = %12%\ati2mpab.sys
+
+[ati2plxx_Generic_Service_Inst]
+ServiceType    = 0x110
+StartType      = 2
+ErrorControl   = 1
+ServiceBinary  = %11%\ati2plxx.exe
+
+[ati2plxx_EventLog_Inst]
+AddReg=ati2plxx_EventLog_AddReg
+
+[ati2plxx_EventLog_AddReg]
+HKR,,EventMessageFile,0x00020000,"%11%\ati2plxx.exe"
+HKR,,TypesSupported,0x00010001,7
+
+[Uninstall.AddReg]
+HKLM,%SW_MS_UINS_M64DRV%,DisplayName,,"ATI NT Display Driver"
+HKLM,%SW_MS_UINS_M64DRV%,UninstallString,,"rundll32 %11%\atiiiexx.dll,_InfEngUnInstallINFFile_RunDLL@16 -inf:%11%\ati2mpab.inf"
+
+;
+; Software installation
+;
+
+[ati2mpab.SoftwareSettings]
+AddReg = ati2mpab_SoftwareDeviceSettings
+AddReg = ati2mpab_SoftwareDesktopSettings
+AddReg = ati2mpab_SoftwareDesktopSettings_ENU
+AddReg = ati2mpab_OpenGLSoftwareSettings
+AddReg = ati2mpab_TVOutSoftwareSettings
+
+[ati2mpab_ENU.SoftwareSettings]
+AddReg = ati2mpab_SoftwareDeviceSettings
+AddReg = ati2mpab_SoftwareDesktopSettings
+AddReg = ati2mpab_SoftwareDesktopSettings_ENU
+AddReg = ati2mpab_OpenGLSoftwareSettings
+AddReg = ati2mpab_TVOutSoftwareSettings
+
+[ati2mpab_JPN.SoftwareSettings]
+AddReg = ati2mpab_SoftwareDeviceSettings
+AddReg = ati2mpab_SoftwareDesktopSettings
+AddReg = ati2mpab_SoftwareDesktopSettings_JPN
+AddReg = ati2mpab_OpenGLSoftwareSettings
+AddReg = ati2mpab_TVOutSoftwareSettings
+
+[ati2mpab_SoftwareDeviceSettings]
+HKR,, BlockWriteDisabled,            %REG_DWORD%,    0
+HKR,, FastFillDisabled,              %REG_DWORD%,    0
+HKR,, HDTVEnabled,                   %REG_DWORD%,    0
+HKR,, TimingSelection,               %REG_DWORD%,    0
+HKR,, InstalledDisplayDrivers,       %REG_MULTI_SZ%, ati2drab
+HKR,, VgaCompatible,                 %REG_DWORD%,    0
+HKR,, DALRULE_NOTVANDLCDONCRTC,      %REG_DWORD%,    1
+;HKR,, DALRULE_SELECTION_SCHEME,      %REG_DWORD%,    1
+HKR,, DDLRProRegOptionPatchLcdSyncProblem, %REG_DWORD%,    1
+HKR,, DDLRProRegOptionPLLProblemNBlankDelay, %REG_DWORD%,    1
+HKR,, DDLRegOptionLTUseNonExtPLL4Primary, %REG_DWORD%, 1
+HKR,, DALRestrictedModes,            %REG_BINARY%,   D0, 02, E0, 01, 00, 00, 00, 00, 50, 03, E0, 01, 00, 00, 00, 00, 60, 03, E0, 01, 00, 00, 00, 00, 00, 04, 58, 02, 00, 00, 00, 00, 80, 04, 60, 03, 00, 00, 00, 00
+HKR,, DALRULE_DEFAULTSONPRIMARYONLY,      %REG_DWORD%,    1
+HKR,, DALRULE_USELASTSELECTEDSCHEME,      %REG_DWORD%,    1
+HKR,, DALNonStandardModesBCD,      %REG_BINARY%,   14, 00, 10, 50, 00, 00, 00, 00
+HKR,"Desktop",,,
+
+[ati2mpab_SoftwareDesktopSettings]
+HKR,,drv,,"Ati2drab.dll"
+HKR,,ReleaseVersion,,"M6.10.126-T02"
+
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\ATIPagesEx",,,"{700B1221-CAFF-11d1-B9DE-000000001B1B}"
+HKCR,"CLSID\{700B1221-CAFF-11d1-B9DE-000000001B1B}\InProcServer32",,,"atippaxx.dll"
+HKCR,"CLSID\{700B1221-CAFF-11d1-B9DE-000000001B1B}\InProcServer32",ThreadingModel,,"Apartment"
+
+HKR,"shellex\PropertySheetHandlers\ATIPagesEx",,,"{700B1221-CAFF-11d1-B9DE-000000001B1B}"
+
+
+HKCR,"Display.DisplayServer",,,"DisplayServer Class"
+HKCR,"Display.DisplayServer\CLSID",,,"{E62DCD80-C262-11d1-A419-006097923041}"
+HKCR,"Display.DisplayServer.1",,,"DisplayServer Class"
+HKCR,"Display.DisplayServer.1\CLSID",,,"{E62DCD80-C262-11d1-A419-006097923041}"
+
+HKCR,"CLSID\{E62DCD80-C262-11d1-A419-006097923041}",,,"DisplayServer Class"
+HKCR,"CLSID\{E62DCD80-C262-11d1-A419-006097923041}\InProcServer32",,,"atipdsxx.dll"
+HKCR,"CLSID\{E62DCD80-C262-11d1-A419-006097923041}\ProgID",,,"Display.DisplayServer.1"
+HKCR,"CLSID\{E62DCD80-C262-11d1-A419-006097923041}\VersionIndependentProgID",,,"Display.DisplayServer"
+
+
+HKCR,"CLSID\{F2B8E361-D2E2-11D1-A41F-00609729B902}",,,"User Interface Object, AtiPropertySheet"
+HKCR,"CLSID\{F2B8E361-D2E2-11D1-A41F-00609729B902}\InProcServer32",,,"atipuixx.dll"
+HKCR,"CLSID\{F2B8E361-D2E2-11D1-A41F-00609729B902}\ProgID",,,"UserInterfaceObject.AtiPropertySheet.1"
+HKCR,"CLSID\{F2B8E361-D2E2-11D1-A41F-00609729B902}\VersionIndependentProgID",,,"UserInterfaceObject.AtiPropertySheet"
+
+
+HKLM,"Software\ATI Technologies\Desktop",HelpID,,"0"
+
+HKLM,"Software\ATI Technologies\Desktop",EnableIcon,,"1"
+
+;HKR," Desktop",D3D,1,01,00,00,00
+HKR,"Desktop",OpenGL,1,01,00,00,00 
+
+HKLM,"Software\ATI Technologies\Desktop\IconTA","Side Image",,"1"
+HKLM,"Software\ATI Technologies\Desktop\IconTA","Show Icons",,"0"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\ATI Icon Settings",Executable,,"atiptaxx -?"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\ATI Icon Settings",Icon,,"atiptaxx.exe"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\ATI Icon Settings",IconIndex,,"0"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Display Settings",Executable,,"rundll32 shell32.dll,Control_RunDLL desk.cpl"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Display Settings",Icon,,"desk.cpl"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Display Settings",IconIndex,,"1"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Device Settings",Executable,,"rundll32 shell32.dll,Control_RunDLL sysdm.cpl"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Device Settings",Icon,,"sysdm.cpl"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Device Settings",IconIndex,,"0"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Display Driver",Executable,,"m"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Display Driver",Icon,,"winhelp.exe"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Display Driver",IconIndex,,"0"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Flat Panel",Executable,,"f"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Flat Panel",Icon,,"winhelp.exe"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Flat Panel",IconIndex,,"0"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Flat Panel",ExecutableExtend,,">subcon"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Flat Panel",Context,,"117"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",Executable,,"t"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",Icon,,"winhelp.exe"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",IconIndex,,"0"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",Context,,"152"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",TVOut,,"1"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",ExecutableExtend,,">subcon"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI Display Driver",Executable,,"m"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI Display Driver",Icon,,"atiptaxx.exe"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI Display Driver",IconIndex,,"14"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI Display Driver",Context,,"90"
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI Display Driver",ExecutableExtend,,">subcon"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",Executable,,"t"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",Icon,,"atiptaxx.exe"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",IconIndex,,"14"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",Context,,"200"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",ExecutableExtend,,">subcon"
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",TVOut,,"1"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",AtiPTA,,"Atiptaxx.exe"
+
+
+[ati2mpab_SoftwareDesktopSettings_ENU]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\ATI Display Driver",DisplayName,,%ENU_UNINSTALL_DISPLAY_DRIVER%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\ATI Icon Settings",,,%ENU_ICON_ATI_ICON_SETTINGS%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Display Settings",,,%ENU_ICON_DISPLAY_SETTINGS%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Device Settings",,,%ENU_ICON_DEVICE_SETTINGS%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Display Driver",,,%ENU_ICON_DISPLAY_DRIVER%
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Flat Panel",,,%ENU_ICON_FLATPANEL%
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",,,%ENU_ICON_TVOUT%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI Display Driver",,,%ENU_ICON_DISPLAY_DRIVER%
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",,,%ENU_ICON_TVOUT%
+
+[ati2mpab_SoftwareDesktopSettings_JPN]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\ATI Display Driver",DisplayName,,%JPN_UNINSTALL_DISPLAY_DRIVER%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\ATI Icon Settings",,,%JPN_ICON_ATI_ICON_SETTINGS%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Display Settings",,,%JPN_ICON_DISPLAY_SETTINGS%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Settings\Device Settings",,,%JPN_ICON_DEVICE_SETTINGS%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Display Driver",,,%JPN_ICON_DISPLAY_DRIVER%
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI Flat Panel",,,%JPN_ICON_FLATPANEL%
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Help\ATI TV Out",,,%JPN_ICON_TVOUT%
+HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI Display Driver",,,%JPN_ICON_DISPLAY_DRIVER%
+;HKLM,"Software\ATI Technologies\Desktop\IconTA\Problem\ATI TV Out",,,%JPN_ICON_TVOUT%
+
+[ati2mpab_OpenGLSoftwareSettings]
+HKLM, "Software\Microsoft\Windows NT\CurrentVersion\OpenGLDrivers", "ati", %REG_SZ%, "ATION4AB"
+
+[ati2mpab_TVOutSoftwareSettings]
+HKLM, "Software\CLASSES\CLSID\{EBB5845F-CA80-11CF-BD3C-008029E89281}\InProcServer32",,,"atitvo32.dll"
+HKLM, "Software\CLASSES\CLSID\{EBB5845F-CA80-11CF-BD3C-008029E89281}\InProcServer32",ThreadingModel,,"Both"
+;
+; Windows NT 5.0 special settings
+;
+
+[ati2mpab_ENU.GeneralConfigData]
+PnpEnabled = 1
+
+[ati2mpab_JPN.GeneralConfigData]
+PnpEnabled = 1
+
+;
+; Source file information
+;
+
+[SourceDisksNames.x86]
+1 = %DiskId% 1,,,""
+2 = %DiskId% 2,,,""
+
+[SourceDisksFiles]
+ati2mpab.sys = 1
+ati2mpab.inf = 1
+ati2drab.dll = 1
+atiiiexx.dll = 1
+ATION4AB.DLL = 1
+
+atipdsxx.dll = 1
+atippaxx.dll = 1
+;atisserv.dll = 1
+Atfenuxx.hlx = 1
+Atmenuxx.hlx = 1
+Attenuxx.hlx = 1
+Atmenuxx.cnt = 1
+ati2plxx.exe = 1
+atiptaxx.exe = 1
+atrptaxx.enu = 1
+atiphexx.exe = 1
+Atrpdsxx.enu = 1
+atitvo32.dll = 1
+
+atipuixx.dll = 2
+atrpuixx.enu = 2
+atiicdxx.dll = 2
+atiicdxx.vxd = 2
+atiicdxx.sys = 2
+atricdxx.dft = 2
+atiiprxx.exe = 2
+atriprxx.dft = 2
+atriprxx.JPN = 2
+atrptaxx.JPN = 2
+atrpuixx.JPN = 2
+atrpdsxx.JPN = 2
+ATFJPNxx.hlx = 2
+ATMJPNxx.hlx = 2
+ATTJPNxx.hlx = 2
+ATMJPNxx.cnt = 2
+
+
+ssdpms.scr = 1
+ssgpcdef.rsc = 1
+ssgpcdef.hlp = 1
+ssgpcjpn.rsc = 2
+ssgpcjpn.hlp = 2
+
+[Strings]
+
+;
+; Non-localizable strings
+;
+
+REG_SZ        = 0x00000000
+REG_MULTI_SZ  = 0x00010000
+REG_EXPAND_SZ = 0x00020000
+REG_BINARY    = 0x00000001
+REG_DWORD     = 0x00010001
+SERVICEROOT   = System\CurrentControlSet\Services
+
+;
+; Localizable strings
+;
+
+DiskId     = "ATI Installation Disk"
+ati        = "ATI"
+CompatAdap = "Compatible Graphics Adapter"
+
+; Property Page Language Dependent Strings for ENU
+ENU_ICON_ATI_ICON_SETTINGS="ATI Icon Settings"
+ENU_ICON_DISPLAY_SETTINGS="Display Settings"
+ENU_ICON_DEVICE_SETTINGS="Device Settings"
+ENU_ICON_DISPLAY_DRIVER="ATI Desktop"
+ENU_ICON_FLATPANEL="ATI Flat Panel"
+ENU_ICON_TVOUT="ATI Television Display"
+ENU_UNINSTALL_DISPLAY_DRIVER="ATI Display Driver Utility"
+SW_MS_UINS_M64DRV="Software\Microsoft\Windows\CurrentVersion\Uninstall\ATI Mach64 Display Driver"
+
+;Property Page Language Dependent Strings for Japanese
+JPN_UNINSTALL_DISPLAY_DRIVER="ATI ディスプレイ ドライバ ユーティリティ"
+JPN_ICON_ATI_ICON_SETTINGS="ATI アイコンの設定"
+JPN_ICON_DISPLAY_SETTINGS="ディスプレイの設定"
+JPN_ICON_DEVICE_SETTINGS="デバイスの設定"
+JPN_ICON_DISPLAY_DRIVER="ATI デスクトップ"
+JPN_ICON_FLATPANEL="ATI フラット パネル"
+JPN_ICON_TVOUT="ATI TV ディスプレイ"
+
+
+L1="(English)"
+L8="(Japanese)"

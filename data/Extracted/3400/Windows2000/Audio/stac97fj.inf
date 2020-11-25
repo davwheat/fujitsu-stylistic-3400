@@ -1,0 +1,269 @@
+; Copyright (c) 1999-2000 SigmaTel Inc.
+
+[Version]
+Signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%SGTML%
+DriverVer = 03/01/2000,5.12.01.3070
+CatalogFile=stac97fj.cat
+
+[SourceDisksNames]
+222="AC97 WDM SigmaTel Driver Disk",,,
+
+[SourceDisksFiles]
+stac97fj.sys=222
+stac97fj.cat=222
+
+[Manufacturer]
+%SgtmlMfg%=SigmaTel
+
+[SigmaTel]
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425
+%STAC97_BAN.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_7195&subsys_109910CF
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_76008384
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_76008384
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_76098384
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_76098384
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_76448384
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_76448384
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_40081462
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_40081462
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_760015DD
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_760015DD
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_760915DD
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_760915DD
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_764415DD
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_764415DD
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_65601070
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_65601070
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_24158086
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_24258086
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_7609270F
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_7609270F
+%STAC97_AA.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2415&subsys_30301462
+%STAC97_AB.DeviceDesc%=STAC97, PCI\VEN_8086&DEV_2425&subsys_30301462
+
+[DestinationDirs]
+STAC97.CopyList=10,system32\drivers
+
+[STAC97]
+AlsoInstall=ks.registration(ks.inf),wdmaudio.registration(wdmaudio.inf)
+CopyFiles=STAC97.CopyList
+AddReg=STAC97.AddReg,STAC97_NAMES.AddReg, STAC97_OEM.AddReg
+DriverVer = 03/01/2000,5.12.01.3070
+
+[STAC97.nt]
+Include=LayoutFile=layout.inf,ks.inf,wdmaudio.inf
+Needs=KS.Registration,WDMAUDIO.Registration
+CopyFiles=STAC97.CopyList
+AddReg=STAC97.AddReg,STAC97_NAMES.AddReg, STAC97_OEM.AddReg
+
+[STAC97.CopyList]
+STAC97FJ.sys
+
+[STAC97.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,STAC97.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,STAC97.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,STAC97.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,STAC97.Interface.Topology
+
+[STAC97.nt.Interfaces]
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Wave%,STAC97.Interface.Wave
+AddInterface=%KSCATEGORY_RENDER%,%KSNAME_Wave%,STAC97.Interface.Wave
+AddInterface=%KSCATEGORY_CAPTURE%,%KSNAME_Wave%,STAC97.Interface.Wave
+AddInterface=%KSCATEGORY_AUDIO%,%KSNAME_Topology%,STAC97.Interface.Topology
+
+[STAC97.Interface.Wave]
+AddReg=STAC97.I.Wave.AddReg
+
+[STAC97.I.Wave.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%STAC97.Wave.szPname%
+
+[STAC97.Interface.Topology]
+AddReg=STAC97.I.Topo.AddReg
+
+[STAC97.I.Topo.AddReg]
+HKR,,CLSID,,%Proxy.CLSID%
+HKR,,FriendlyName,,%STAC97.Topology.szPname%
+
+[STAC97.AddReg]
+HKR,,AssociatedFilters,,"wdmaud,swmidi,redbook"
+HKR,,Driver,,STAC97FJ.sys
+HKR,,NTMPDriver,,"STAC97FJ.sys,sbemul.sys"
+
+HKR,Drivers,SubClasses,,"wave,midi,mixer"
+
+HKR,Drivers\wave\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\midi\wdmaud.drv,Driver,,wdmaud.drv
+HKR,Drivers\mixer\wdmaud.drv,Driver,,wdmaud.drv
+
+HKR,Drivers\wave\wdmaud.drv,Description,,%STAC97.DeviceDesc%
+HKR,Drivers\midi\wdmaud.drv, Description,,%WDM_MIDI%
+HKR,Drivers\mixer\wdmaud.drv,Description,,%STAC97.DeviceDesc%
+
+[STAC97.Services]
+AddService = STAC97, 0x00000002, STAC97_Service_Inst
+
+[STAC97.nt.Services]
+AddService = STAC97, 0x00000002, STAC97_Service_Inst
+
+[STAC97_Service_Inst]
+DisplayName   = %STAC97.SvcDesc%
+ServiceType   = 1                  ; SERVICE_KERNEL_DRIVER
+StartType     = 3                  ; SERVICE_DEMAND_START
+ErrorControl  = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary = %10%\system32\drivers\STAC97FJ.sys
+
+[STAC97_NAMES.AddReg]
+;; Nodes
+HKLM,%MediaCategories%\%ICHGUID.PhoneVolume%,Name,,%ICHNode.PhoneVolume%
+HKLM,%MediaCategories%\%ICHGUID.PhoneVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.PhoneMute%,Name,,%ICHNode.PhoneMute%
+HKLM,%MediaCategories%\%ICHGUID.PhoneMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.LineInMute%,Name,,%ICHNode.LineInMute%
+HKLM,%MediaCategories%\%ICHGUID.LineInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.MainMix%,Name,,%ICHNode.MainMix%
+HKLM,%MediaCategories%\%ICHGUID.MainMix%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.Virt3DCenter%,Name,,%ICHNode.Virt3DCenter%
+HKLM,%MediaCategories%\%ICHGUID.Virt3DCenter%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.Virt3DDepth%,Name,,%ICHNode.Virt3DDepth%
+HKLM,%MediaCategories%\%ICHGUID.Virt3DDepth%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.3DBypass%,Name,,%ICHNode.3DBypass%
+HKLM,%MediaCategories%\%ICHGUID.3DBypass%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.3DEnable%,Name,,%ICHNode.3DEnable%
+HKLM,%MediaCategories%\%ICHGUID.3DEnable%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.BeepMix%,Name,,%ICHNode.BeepMix%
+HKLM,%MediaCategories%\%ICHGUID.BeepMix%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.HPVolume%,Name,,%ICHNode.HPVolume%
+HKLM,%MediaCategories%\%ICHGUID.HPVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.HPMute%,Name,,%ICHNode.HPMute%
+HKLM,%MediaCategories%\%ICHGUID.HPMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.MonoOutSelect%,Name,,%ICHNode.MonoOutSelect%
+HKLM,%MediaCategories%\%ICHGUID.MonoOutSelect%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.WaveInSelect%,Name,,%ICHNode.WaveInSelect%
+HKLM,%MediaCategories%\%ICHGUID.WaveInSelect%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.MasterInVolume%,Name,,%ICHNode.MasterInVolume%
+HKLM,%MediaCategories%\%ICHGUID.MasterInVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.MasterInMute%,Name,,%ICHNode.MasterInMute%
+HKLM,%MediaCategories%\%ICHGUID.MasterInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.MicInVolume%,Name,,%ICHNode.MicInVolume%
+HKLM,%MediaCategories%\%ICHGUID.MicInVolume%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.MicInMute%,Name,,%ICHNode.MicInMute%
+HKLM,%MediaCategories%\%ICHGUID.MicInMute%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.AuxInPin%,Name,,%ICHPin.AuxInPin%
+HKLM,%MediaCategories%\%ICHGUID.AuxInPin%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%ICHGUID.PhoneInPin%,Name,,%ICHPin.PhoneInPin%
+HKLM,%MediaCategories%\%ICHGUID.PhoneInPin%,Display,1,00,00,00,00
+
+
+[STAC97_OEM.AddReg]
+;;Default register value at driver startup
+;;Uncomment some one of the lines if you want to overwrite the default setting
+;;The value in these outcommented lines is the driver default. You can change
+;;the register values (and uncomment the line) to overwrite the driver default.
+;;low byte comes first, values are hexadezimal.
+HKR,Settings,MasterVolume,1,4,4		        ;-6.5dB
+;HKR,Settings,HeadphoneVolume,1,0,0		;0dB
+HKR,Settings,MonooutVolume,1,4,4		;-6.5dB
+;HKR,Settings,ToneControls,1,F,F		;bypass
+HKR,Settings,BeepVolume,1,4,4			;+6.5dB
+HKR,Settings,PhoneVolume,1,4,00		        ;muted,+6.5dB
+HKR,Settings,MicVolume,1,44,80			;muted,+6.5dB
+HKR,Settings,LineInVolume,1,4,4		        ;+6.5dB
+HKR,Settings,CDVolume,1,4,4			;+6.5dB
+HKR,Settings,VideoVolume,1,4,4			;+6.5dB
+HKR,Settings,AUXVolume,1,4,84			;+6.5dB
+HKR,Settings,WaveOutVolume,1,7,87		;+1.5dB, muted
+HKR,Settings,RecordSelect,1,4,4		        ;select LiniIn
+HKR,Settings,RecordGain,1,8,8			;+12dB
+;HKR,Settings,RecordGainMic,1,0,0		;0dB
+HKR,Settings,GeneralPurpose,1,0,02		;pre 3D, 3D off, loudness off, mono=mix, mic1
+HKR,Settings,3DControl,1,9,0			;75%
+;HKR,Settings,PowerDown,1,0,0			;no power down
+HKR,Settings,RecordSelect,1,0,00		;select Microfone In
+HKR,Settings,RecordGain,1,08,08			;+12db
+
+;;Configuration
+;;You can disable some of the input lines by outcommenting some of the lines
+;;below. This could be necessary if you have a AC97 codec on board that for
+;;example supports Video input, but you don't have the Video input accessable
+;;for the user (no plug in).
+HKR,Settings,DisablePCBeep,1,1
+;HKR,Settings,DisablePhone,1,1
+HKR,Settings,DisableMic2,1,1
+HKR,Settings,DisableVideo,1,1
+;HKR,Settings,DisableAUX,1,1
+;HKR,Settings,DisableHeadphone,1,1
+;HKR,Settings,DisableMonoOut,1,1
+HKR,Settings,DisableMicIn,1,1
+;HKR,Settings,DisableMic,1,1		;disables all MIC lines, including MIC record.
+;HKR,Settings,DisableLineIn,1,1
+;HKR,Settings,DisableCD,1,1
+
+[Strings]
+SGTML="SigmaTel"
+SgtmlMfg="SigmaTel"
+STAC97_AA.DeviceDesc="Intel(r) 82801AA AC'97 Audio Controller - SigmaTel Codec"
+STAC97_AB.DeviceDesc="Intel(r) 82801AB AC'97 Audio Controller - SigmaTel Codec"
+STAC97.DeviceDesc="Intel(r) AC'97 Audio Controller - SigmaTel Codec"
+STAC97_BAN.DeviceDesc="Intel(r) 82440MX AC'97 Audio Controller - SigmaTel Codec"
+
+STAC97.Wave.szPname="SigmaTel Audio"
+STAC97.Topology.szPname="SigmaTel"
+
+MediaCategories="SYSTEM\CurrentControlSet\Control\MediaCategories"
+
+WDM_MIDI="WDM-based devices"
+
+Proxy.CLSID="{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+KSCATEGORY_AUDIO="{6994AD04-93EF-11D0-A3CC-00A0C9223196}"
+KSCATEGORY_RENDER="{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_CAPTURE="{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSNAME_Wave="Wave"
+KSNAME_Topology="Topology"
+
+STAC97.SvcDesc = "Intel 82801 Audio Driver (WDM) - SigmaTel Codec"
+
+;; Nodes (non-localizeable)
+ICHGUID.PhoneVolume     ="{981DFEA0-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.PhoneMute       ="{981DFEA1-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.LineInMute      ="{981DFEA2-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.MainMix         ="{981DFEA3-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.3DBypass        ="{981DFEA4-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.3DEnable        ="{981DFEA5-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.BeepMix         ="{981DFEA6-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.HPVolume        ="{981DFEA7-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.HPMute          ="{981DFEA8-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.MonoOutSelect   ="{981DFEA9-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.WaveInSelect    ="{981DFEAA-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.MasterInVolume  ="{981DFEAB-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.MasterInMute    ="{981DFEAC-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.MicInVolume     ="{981DFEAD-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.MicInMute       ="{981DFEAE-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.AuxInPin        ="{981DFEAF-27DB-11d3-99FC-00500483AC28}"
+ICHGUID.PhoneInPin      ="{981DFEB0-27DB-11d3-99FC-00500483AC28}"
+
+
+;; Nodes (localizeable)
+ICHNode.PhoneVolume     ="Phone Volume"
+ICHNode.PhoneMute       ="Phone Mute"
+ICHNode.LineInMute      ="LineIn Mute"
+ICHNode.MainMix         ="Main Mix"
+ICHNode.3DBypass        ="3D Bypass"
+ICHNode.3DEnable        ="3D Enable"
+ICHNode.BeepMix         ="Beep Mix"
+ICHNode.HPVolume        ="Headphone Volume"
+ICHNode.HPMute          ="Headphone Mute"
+ICHNode.MonoOutSelect   ="Mono Out Select"
+ICHNode.WaveInSelect    ="WaveIn Select"
+ICHNode.MasterInVolume  ="WaveIn Volume"
+ICHNode.MasterInMute    ="WaveIn Mute"
+ICHNode.MicInVolume     ="Mic In Volume"
+ICHNode.MicInMute       ="Mic In Mute"
+
+ICHPin.AuxInPin         ="ZV"
+ICHPin.PhoneInPin       ="Phone"
+

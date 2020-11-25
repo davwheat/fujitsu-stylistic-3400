@@ -1,0 +1,188 @@
+;*******************************************************************************
+;*                                                                            **
+;*                     I N T E L   P R O P R I E T A R Y                      **
+;*                                                                            **
+;*   COPYRIGHT (c) 1999 BY INTEL CORPORATION. ALL RIGHTS RESERVED.  NO        **
+;*   PART  OF  THIS  PROGRAM OR PUBLICATION MAY BE REPRODUCED, TRANSMITTED,   **
+;*   TRANSCRIBED, STORED IN A RETRIEVAL  SYSTEM,  OR  TRANSLATED  INTO  ANY   **
+;*   LANGUAGE OR COMPUTER LANGUAGE IN ANY FORM OR BY ANY MEANS, ELECTRONIC,   **
+;*   MECHANICAL, MAGNETIC, OPTICAL, CHEMICAL, MANUAL, OR OTHERWISE, WITHOUT   **
+;*   THE PRIOR WRITTEN PERMISSION OF :                                        **
+;*                                                                            **
+;*                             INTEL CORPORATION                              **
+;*                                                                            **
+;*                          2200 MISSION COLLEGE BLVD                         **
+;*                                                                            **
+;*                     SANTA CLARA, CALIFORNIA 95052-8119                     **
+;*                                                                            **
+;*******************************************************************************
+;
+;*******************************************************************************
+; ANSMW2K.INF
+; $Revision: 5 $
+;
+; Intel(R) Advanced Network Services Virtual Adapter
+;
+; Copyright (c) 1999-2000, Intel Corporation
+
+
+[Version]
+Signature               = "$Windows NT$"
+Class                   = Net
+ClassGUID               = {4D36E972-E325-11CE-BFC1-08002BE10318}
+Provider                = %V_Intel%
+CatalogFile             = e100bw2k.cat
+DriverVer               = 01/06/2000
+
+[Manufacturer]
+%V_Intel%               = Intel
+
+;[ControlFlags]
+
+[Intel]
+%iANSMiniport.Desc%     = iANSMP.ndi,     "iANSMiniport"
+
+[iANSMP.ndi]
+AddReg                  = iANSMP.ndi.AddReg
+Characteristics         = 0x8001 ; NCF_FORCE_NDIS_NOTIFY | NCF_VIRTUAL
+
+[iANSMP.ndi.Services]
+AddService              = iANSMiniport,   %SPSVCINST_ASSOCSERVICE%, iANSMP.AddService, NetEventLog
+
+;****************************************************************************
+; [Event Log] sections.
+;****************************************************************************
+[NetEventLog]
+AddReg = NetEventLog.AddReg
+
+[NetEventLog.AddReg]
+HKR,,EventMessageFile,0x00020000,"%%SystemRoot%%\System32\drivers\iansw2k.sys"
+HKR,,TypesSupported,0x00010001,7
+
+[iANSMP.AddService]
+DisplayName             = %iANSMiniport.Desc%
+ServiceType             = %SERVICE_KERNEL_DRIVER%
+StartType               = %SERVICE_DEMAND_START%
+ServiceBinary           = %12%\iansw2k.sys
+LoadOrderGroup          = NDIS
+ErrorControl            = %SERVICE_ERROR_NORMAL%
+StartName               = ; No name
+AddReg                  = iANSMP.AddService.AddReg
+
+
+[iANSMP.AddService.AddReg]
+; ----------------------------------------------------------------------
+; Add any miniport-specific parameters here.  These are params that your
+; miniport driver is going to use.  
+;
+;HKR,   "Parameters", "ParameterName",  %REG_MULTI_SZ%, "MultiSz", "Parameter", "Value"
+;HKR,   "Parameters", "ParameterName2", %REG_DWORD%,    4
+
+[iANSMP.ndi.AddReg]
+HKR,Ndi,                              Service,    , %iANSMiniport%
+HKR,Ndi,                              HelpText,   , %iANSMiniport.Help%
+
+HKR,Ndi\Interfaces,                   UpperRange, %FLG_NOCLOBBER%, "ndis5"
+HKR,Ndi\Interfaces,                   LowerRange, %FLG_NOCLOBBER%, ""
+
+;KHR,,                                 NumRxPackets, 0, 0
+;KHR,,                                 NumTxPackets, 0, 0
+
+HKR,Ndi\Params\BalanceInterval,       ParamDesc,  0, "Balance Interval"
+HKR,Ndi\Params\BalanceInterval,       Type,       0, "int"
+HKR,Ndi\Params\BalanceInterval,       Default,    0, 10
+HKR,Ndi\Params\BalanceInterval,       Flag,       1, 20,00,00,00
+HKR,Ndi\Params\BalanceInterval,       Min,        0, 1
+HKR,Ndi\Params\BalanceInterval,       Max,        0, 50
+HKR,Ndi\Params\BalanceInterval,       Step,       0, 1
+HKR,Ndi\Params\BalanceInterval,       Scale,      0, 1
+HKR,Ndi\Params\BalanceInterval,       Base,       0, 10
+
+HKR,Ndi\Params\CheckTime,             ParamDesc,  0, "Check Time (milliseconds)"
+HKR,Ndi\Params\CheckTime ,            MiniHelp,   0, %CheckTimeMiniHelp%
+HKR,Ndi\Params\CheckTime,             Type,       0, "int"
+HKR,Ndi\Params\CheckTime,             Default,    0, 1000
+HKR,Ndi\Params\CheckTime,             Flag,       1, 20,00,00,00
+HKR,Ndi\Params\CheckTime,             Min,        0, 1000
+HKR,Ndi\Params\CheckTime,             Max,        0, 3000
+HKR,Ndi\Params\CheckTime,             Step,       0, 1000
+HKR,Ndi\Params\CheckTime,             Scale,      0, 1
+HKR,Ndi\Params\CheckTime,             Base,       0, 10
+
+HKR,Ndi\Params\MaxNumProbeRetry,      ParamDesc,  0, "MaxNumProbeRetry"
+HKR,Ndi\Params\MaxNumProbeRetry,      Type,       0, "int"
+HKR,Ndi\Params\MaxNumProbeRetry,      Default,    0, 3
+HKR,Ndi\Params\MaxNumProbeRetry,      Flag,       1, 20,00,00,00
+HKR,Ndi\Params\MaxNumProbeRetry,      Min,        0, 0
+HKR,Ndi\Params\MaxNumProbeRetry,      Max,        0, 5
+HKR,Ndi\Params\MaxNumProbeRetry,      Step,       0, 1
+HKR,Ndi\Params\MaxNumProbeRetry,      Scale,      0, 1
+HKR,Ndi\Params\MaxNumProbeRetry,      Base,       0, 10
+
+HKR,Ndi\Params\ProbeEnabled,          ParamDesc,  0, "Probe"
+HKR,Ndi\Params\ProbeEnabled,          Type,       0, "enum"
+HKR,Ndi\Params\ProbeEnabled,          Default,    0, "0"
+HKR,Ndi\Params\ProbeEnabled,          Flag,       1, 30,00,00,00
+HKR,Ndi\Params\ProbeEnabled\Enum,     0,          0, "Disabled"
+HKR,Ndi\Params\ProbeEnabled\Enum,     1,          0, "Enabled"
+
+HKR,Ndi\Params\ProbePacketType,       ParamDesc,  0, "ProbePacketType"
+HKR,Ndi\Params\ProbePacketType,       Type,       0, "enum"
+HKR,Ndi\Params\ProbePacketType,       Default,    0, "0"
+HKR,Ndi\Params\ProbePacketType,       Flag,       1, 30,00,00,00
+HKR,Ndi\Params\ProbePacketType\Enum,  0,          0, "Broadcast Probes"
+HKR,Ndi\Params\ProbePacketType\Enum,  1,          0, "Multicast Probes"
+
+;------------------------------------------------------------------------------------
+[Strings]
+V_Intel                     = "Intel"
+iANSMiniport                = "iANSMiniport"
+iANSMiniport.Desc           = "Intel(R) Advanced Network Services Virtual Adapter"
+iANSMiniport.Help           = "Intel(R) Advanced Network Services Virtual Adapter Help"
+
+; ServiceType values
+SERVICE_KERNEL_DRIVER       = 0x00000001
+SERVICE_FILE_SYSTEM_DRIVER  = 0x00000002
+SERVICE_ADAPTER             = 0x00000004
+SERVICE_RECOGNIZER_DRIVER   = 0x00000008
+SERVICE_WIN32_OWN_PROCESS   = 0x00000010
+SERVICE_WIN32_SHARE_PROCESS = 0x00000020
+SERVICE_INTERACTIVE_PROCESS = 0x00000100
+SERVICE_INTERACTIVE_SHARE_PROCESS = 0x00000120
+
+; StartType values
+SERVICE_BOOT_START          = 0x00000000
+SERVICE_SYSTEM_START        = 0x00000001
+SERVICE_AUTO_START          = 0x00000002
+SERVICE_DEMAND_START        = 0x00000003
+SERVICE_DISABLED            = 0x00000004
+
+; ErrorControl values
+SERVICE_ERROR_IGNORE        = 0x00000000
+SERVICE_ERROR_NORMAL        = 0x00000001
+SERVICE_ERROR_SEVERE        = 0x00000002
+SERVICE_ERROR_CRITICAL      = 0x00000003
+
+; Characteristic flags
+NCF_VIRTUAL                 = 0x0001
+NCF_WRAPPER                 = 0x0002
+NCF_PHYSICAL                = 0x0004
+NCF_HIDDEN                  = 0x0008
+NCF_NO_SERVICE              = 0x0010
+NCF_NOT_USER_REMOVABLE      = 0x0020
+NCF_HAS_UI                  = 0x0080
+NCF_MODEM                   = 0x0100
+
+; Registry types
+REG_MULTI_SZ                = 0x10000
+REG_EXPAND_SZ               = 0x20000
+REG_DWORD                   = 0x10001
+
+; Service install flags
+SPSVCINST_TAGTOFRONT        = 0x1
+SPSVCINST_ASSOCSERVICE      = 0x2
+
+; AddReg flags
+FLG_NOCLOBBER        = 0x00000002
+;Minihelps
+CheckTimeMiniHelp	= "How often the driver checks the status of the adapters in the Fault Tolerance Team"			   			

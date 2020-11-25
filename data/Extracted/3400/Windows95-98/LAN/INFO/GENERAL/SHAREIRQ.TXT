@@ -1,0 +1,20 @@
+   PCI shared interrupts
+
+
+Shared interrupts are normal in PCI servers, but not all
+PCI device drivers support them. Although this adapter
+supports shared interrupts, other PCI drivers used by your 
+server may not.
+
+If you're having problems with a shared interrupt, try one
+of the following:
+
+1  Use your server's BIOS setup program to change the
+   interrupt assigned to this adapter.
+
+2  Make sure that the adapter device driver loads
+   AFTER the driver for any other device sharing this
+   interrupt.
+
+3  Contact the manufacturer of the other adapter or add-in
+   card that is sharing this interrupt for a new driver.

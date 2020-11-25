@@ -1,0 +1,289 @@
+; ATIVidIn.inf
+; Win98/NT5 Drivers for ATI AIW and AIWPro TV and video capture
+
+[Version]
+CatalogFile=ATII2KAB.cat
+signature="$CHICAGO$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+Provider=%AtiTech%
+LayoutFile=layout.inf, layout1.inf, layout2.inf
+DriverVer=12/06/2000
+
+;[SourceDisksNames]
+;1="ATI WDM Drivers",,,"c:\ati\install"
+
+
+[DestinationDirs]
+Decoder.CopyDrivers=10,system32\drivers 
+Decoder.CopyCodec=11
+ativraxx.CopyDrivers=10,system32\drivers
+DAControl.CopyDriver=11
+
+
+[Manufacturer]
+%ATI%=ATI
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[ATI]
+;%Decoder.DeviceDesc%=Decoder.Device,DISPLAY\ATIRTVIDEO
+%ativrvxx.DeviceDesc%=ativrvxx.Device,DISPLAY\ntativrvxx
+%ativraxx.DeviceDesc%=ativraxx.Device,DISPLAY\vraxx
+
+
+;---------------------------------------------------------------
+;                AtiRageTheater
+;---------------------------------------------------------------
+[ativrvxx.Device]
+Include  =  atintvmv.inf
+;ks.inf, atintvmv.inf
+;, kscaptur.inf, ksfilter.inf
+Needs=      KS.Registration, DefaultInstall
+;,KSCAPTUR.Registration,MSPCLOCK.Installation
+AddReg   =  ativrvxx.AddReg
+UpdateInis= ativrvxx.UpdateIni
+CopyFiles=  ativrvxx.CopyDrivers
+DelFiles =  ativrvxx.DelDrivers
+KnownFiles= ativrvxx.KnownFiles
+
+[ativrvxx.Device.NT]
+Include  =  atintvmv.inf
+;ks.inf, atintvmv.inf
+;, kscaptur.inf, ksfilter.inf
+Needs=      KS.Registration, DefaultInstall
+;,KSCAPTUR.Registration.NT,MSPCLOCK.Installation
+AddReg   =  ativrvxx.AddReg
+;UpdateInis= ativrvxx.UpdateIni
+CopyFiles=  Decoder.CopyDrivers
+DelFiles =  ativrvxx.DelDrivers
+
+
+[ativrvxx.CopyDrivers]
+;atinrvxx.sys
+;stream.sys
+;ks.sys
+
+[ativrvxx.CopyCodec]
+;msyuv.dll
+
+[ativrvxx.UpdateIni]
+;system.ini, drivers32,,"VIDC.UYVY=msyuv.dll"
+
+[ativrvxx.KnownFiles]
+atinrvxx.sys=safe
+
+[ativrvxx.DelDrivers]
+
+[ativrvxx.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,atinrvxx.sys
+HKR,,MUX0,,Composite
+HKR,,MUX1,,Tuner
+HKR,,MUX2,,SVideo
+HKR,,DataWidth,,8
+HKR,,DebugLevel,3,0
+HKR,,EmbeddedControl,,true
+;HKR,,OutputEnablePolarity,,1
+;HKR,,DefaultDecoderWidth,,720
+
+
+
+[ativrvxx.Device.NT.Services]
+AddService = ativrvxx,0x00000002,ativrvxx.ServiceInstall
+
+[ativrvxx.ServiceInstall]
+DisplayName   = %ativrvxx.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\atinrvxx.sys
+
+
+
+[ativrvxx.Device.NT.Interfaces] 
+AddInterface={65e8773d-8f56-11d0-a3b9-00a0c9223196},"GLOBAL",VideoCapture,
+AddInterface={a799a801-a46d-11d0-a18c-00a02401dcd4},"GLOBAL",VideoCrossbar,
+
+[DecoderPro.Device.Interfaces]
+AddInterface={65e8773d-8f56-11d0-a3b9-00a0c9223196},"GLOBAL",VideoCapture,
+AddInterface={a799a801-a46d-11d0-a18c-00a02401dcd4},"GLOBAL",VideoCrossbar,
+
+[VideoCapture]
+AddReg=VideoCapture.AddReg
+
+[VideoCrossbar]
+AddReg=VideoXBar.AddReg
+
+[VideoCapture.AddReg]
+HKR,,CLSID,,{17CCA71B-ECD7-11D0-B908-00A0C9223196}
+HKR,,FriendlyName,,%Decoder.Capture%
+HKR,,PageOutWhenUnopened,3,01
+HKR,,DontSuspendIfStreamsAreRunning,3,01
+
+[VideoXBar.AddReg]
+HKR,,CLSID,,{71F96460-78F3-11d0-A18C-00A0C9118956}
+HKR,,FriendlyName,,%Decoder.Crossbar%
+
+
+
+;---------------------------------------------------------------
+;                ATITVAUDIO
+;---------------------------------------------------------------
+[ativraxx.Device]
+Include  =  ativdaxx.inf
+Needs=      KS.Registration, DefaultInstall
+AddReg   =  ativraxx.AddReg
+;, DAControl.Add.Reg
+UpdateInis= ativraxx.UpdateIni
+CopyFiles=  ativraxx.CopyDrivers
+;,  DAControl.CopyDriver
+KnownFiles= ativraxx.KnownFiles
+DelFiles =  ativrvxx.DelDrivers
+
+[ativraxx.Device.NT]
+Include  =  ativdaxx.inf
+Needs=      KS.Registration, DefaultInstall
+AddReg   =  ativraxx.AddReg
+;,  DAControl.Add.Reg
+;,TopologyNodes
+CopyFiles=  ativraxx.CopyDrivers
+;,  DAControl.CopyDriver
+DelFiles =  ativraxx.DelDrivers
+
+[ativraxx.DelDrivers]
+
+
+[ativraxx.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,atinraxx.sys
+HKR,,PageOutWhenUnopened,3,01
+HKR,,DebugLevel,3,0
+HKR,Provider,TurboMode,3,0
+
+[ativraxx.CopyDrivers]
+;atinraxx.sys
+;stream.sys
+;ks.sys
+
+[ativraxx.KnownFiles]
+atinraxx.sys=safe
+
+[ativraxx.Device.NT.Services]
+AddService = ativraxx,0x00000002,ativraxx.ServiceInstall
+
+[ativraxx.ServiceInstall]
+DisplayName   = %ativraxx.DeviceDesc%
+ServiceType   = %SERVICE_KERNEL_DRIVER%
+StartType     = %SERVICE_DEMAND_START%
+ErrorControl  = %SERVICE_ERROR_NORMAL%
+ServiceBinary = %12%\atinraxx.sys
+
+[ativraxx.Device.NT.Interfaces] 
+AddInterface={65e8773d-8f56-11d0-a3b9-00a0c9223196},"GLOBAL",CategoryCapture,
+AddInterface={65e8773e-8f56-11d0-a3b9-00a0c9223196},"GLOBAL",CategoryRender,
+AddInterface={6994ad04-93ef-11d0-a3cc-00a0c9223196},"GLOBAL",CategoryAudio,
+
+[ativraxx.Device.Interfaces]
+AddInterface={65e8773d-8f56-11d0-a3b9-00a0c9223196},"GLOBAL",CategoryCapture,
+AddInterface={65e8773e-8f56-11d0-a3b9-00a0c9223196},"GLOBAL",CategoryRender,
+AddInterface={6994ad04-93ef-11d0-a3cc-00a0c9223196},"GLOBAL",CategoryAudio,
+
+[CategoryCapture]
+AddReg=AudioCapture.AddReg
+
+[CategoryRender]
+AddReg=AudioRender.AddReg
+
+[CategoryAudio]
+AddReg=AudioAudio.AddReg
+
+[AudioCapture.AddReg]
+HKR,,CLSID,,{17CCA71B-ECD7-11D0-B908-00A0C9223196}
+HKR,,FriendlyName,,%Ativraxx.DeviceDesc%
+HKR,,PageOutWhenUnopened,3,01
+HKR,,DontSuspendIfStreamsAreRunning,3,01
+
+[AudioRender.AddReg]
+HKR,,CLSID,,{17CCA71B-ECD7-11D0-B908-00A0C9223196}
+HKR,,FriendlyName,,%Ativraxx.DeviceDesc%
+HKR,,PageOutWhenUnopened,3,01
+HKR,,DontSuspendIfStreamsAreRunning,3,01
+
+[AudioAudio.AddReg]
+HKR,,CLSID,,{17CCA71B-ECD7-11D0-B908-00A0C9223196}
+HKR,,FriendlyName,,%Ativraxx.DeviceDesc%
+HKR,,PageOutWhenUnopened,3,01
+HKR,,DontSuspendIfStreamsAreRunning,3,01
+
+[TopologyNodes]
+HKLM,%MediaCategories%\%GUID.SpdifPin%,Name,,%Node.SpdifPin%
+HKLM,%MediaCategories%\%GUID.SpdifPin%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%GUID.PcmInPin%,Name,,%Node.PcmInPin%
+HKLM,%MediaCategories%\%GUID.PcmInPin%,Display,1,00,00,00,00
+HKLM,%MediaCategories%\%GUID.PcmOutPin%,Name,,%Node.PcmOutPin%
+HKLM,%MediaCategories%\%GUID.PcmOutPin%,Display,1,00,00,00,00
+
+
+;---------------------------------------------------------------
+;                ATITVAUDIO's ATIVDAXX
+;---------------------------------------------------------------
+[DAControl.CopyDriver]
+ativdaxx.ax
+
+[DAControl.Add.Reg]
+HKCR,CLSID\{979F5041-248F-11d3-9EB2-006097A78F9D},,,%PlugIn_DAControl%
+HKCR,CLSID\{979F5041-248F-11d3-9EB2-006097A78F9D}\InprocServer32,,,ativdaxx.ax
+HKCR,CLSID\{979F5041-248F-11d3-9EB2-006097A78F9D}\InprocServer32,ThreadingModel,,Both
+
+;
+; This IID is aggregated for the filter given the CLSID of the property set KSPROPSETID_Audio_ATI
+;
+;HKLM,System\CurrentControlSet\Control\MediaInterfaces\{979F5041-248F-11d3-9EB2-006097A78F9D},,,%PlugIn_DAControl%
+;HKLM,System\CurrentControlSet\Control\MediaInterfaces\{979F5041-248F-11d3-9EB2-006097A78F9D},IID,1,41,50,9F,97,8F,24,D3,11,9E,B2,00,60,97,A7,8F,9D
+
+
+[Strings]
+;----------------
+; Non-Localizable
+;----------------
+SERVICE_KERNEL_DRIVER=1
+SERVICE_DEMAND_START=3
+SERVICE_ERROR_NORMAL=1
+
+ATI="ATI"
+AtiTech="ATI Technologies Inc."
+captureClassName="Sound, video and game controllers"
+
+;----------------
+;  ATIRTVideo
+;----------------
+ativrvxx.DeviceDesc="ATI RageTheater, WDM Video Capture"
+;DecoderPro.DeviceDesc="ATI RageTheater, WDM Video Capture"
+Decoder.Capture="ATI RageTheater Video Capture"
+Decoder.Crossbar="ATI RageTheater Video Crossbar"
+REG_DWORD=0x00010001
+
+;----------------
+;  ATIRTAudio
+;----------------
+ativraxx.DeviceDesc="ATI RageTheater AUDIO"
+ativraxx.Capture="ATI RageTheater Audio Capture"
+ativraxx.Crossbar="ATI RageTheater Audio Crossbar"
+REG_DWORD=0x00010001
+
+KSCATEGORY_CAPTURE=	"{65E8773D-8F56-11D0-A3B9-00A0C9223196}"
+KSCATEGORY_RENDER=	"{65E8773E-8F56-11D0-A3B9-00A0C9223196}"
+Proxy.CLSID=		"{17CCA71B-ECD7-11D0-B908-00A0C9223196}"
+GUID.SpdifPin="{ECDA4882-9501-11d2-BD1E-00105A196FB7}"
+GUID.PcmInPin="{ECDA4881-9501-11d2-BD1E-00105A196FB7}"
+GUID.PcmOutPin="{ECDA4880-9501-11d2-BD1E-00105A196FB7}"
+Node.SpdifPin="S/PDIF"
+Node.PcmInPin="PCM Render"
+Node.PcmOutPin="PCM Capture"
+
+;----------------
+;  ATIVDAXX
+;----------------
+PlugIn_DAControl="WDM Digital Audio Property Set Interface Handler"

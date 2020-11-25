@@ -1,0 +1,300 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fmodern\fprq1\fcharset0 Courier New;}{\f1\fmodern\fcharset0 Courier New;}{\f2\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue0;}
+{\stylesheet{ Normal;}{\s1 heading 1;}{\s2 heading 2;}{\s3 heading 3;}{\s4 heading 4;}}
+\viewkind4\uc1\pard\nowidctlpar\fi-540\li1260\b\f0\fs22 FUJITSU PC Corporation \par
+\b0 ----------------------------------------------------------------\par
+\b Stylistic 3500 Pen Tablet Computer \par
+\b0 ----------------------------------------------------------------\par
+\b Installing Windows 2000 and Windows XP Professional (6/07/02)\par
+\b0 ----------------------------------------------------------------\par
+\pard\nowidctlpar\li720\par
+This file contains instructions for installing the Windows 2000 or Windows XP Professional operating system in the Stylistic 3500 pen tablet computer. \par
+\pard\nowidctlpar\fi-540\li1260\par
+The procedure consists of:\par
+\pard\nowidctlpar\fi-720\li1440 I.\tab Installing the Windows operating system\par
+II.\tab Installing the ATI Video Driver\par
+III.\tab Installing the CIC PenX 2.02 Driver\par
+IV.\tab Installing the Pen Driver\par
+\pard\keepn\nowidctlpar\s4\fi-720\li1440 V.\tab Installing the PenX Filter Driver\par
+VI. \tab Installing the Audio Driver\par
+VII.\tab Installing BatteryAid\par
+\pard\nowidctlpar\fi-720\li1440 VIII.\tab Installing Fujitsu Windows 2000 Utilities and Driver\par
+\pard\nowidctlpar\fi-540\li1260\par
+----------------------------------------------------------------\par
+\pard\nowidctlpar\fi-540\li1260\qc\b\par
+NOTES\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\nowidctlpar\fi-540\li1260\b0 The drivers included on this disk are Windows 2000 drivers and are not Windows XP Certified; however, these drivers will work with the Windows XP Professional installation.\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlcont\pnf2\pnindent0{\pntxtb\'B7}}\nowidctlpar\fi-540\li1260\par
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\nowidctlpar\fi-540\li1260 This procedure requires that a CD-ROM drive be connected to the system.\par
+\pard\nowidctlpar\fi-540\li1260\ul\b\par
+\ulnone\b0 ----------------------------------------------------------------\par
+\b\par
+\pard\nowidctlpar\fi-1080\li1800\tx1800 I.\tab Installing Windows 2000 or Windows XP Professional\par
+\pard\nowidctlpar\li720\par
+\pard\nowidctlpar\fi-720\li1440\b0 1. \tab Turn on your system and install the Windows 2000 or Windows XP Professional CD-ROM into the CD-ROM drive. The installation procedure will start up automatically.\par
+\par
+2.\tab Follow the instructions on your screen to complete the upgrade procedure.\par
+\pard\nowidctlpar\li720\par
+\pard\nowidctlpar\fi-540\li1260 ----------------------------------------------------------------\par
+\pard\nowidctlpar\li720\par
+\pard\keepn\nowidctlpar\li720\b II.\tab Installing the ATI Video Driver\par
+\pard\nowidctlpar\li720\b0\par
+\pard\nowidctlpar\fi-540\li1260 1.\tab Double-click on \b Stylistic3500_Video_Win2k.exe\b0 .\par
+\par
+2.\tab Click on \b Unzip\b0  to start the setup.\par
+\par
+3.\tab Press [\b OK\b0 ] after the files have been unzipped. Setup will run automatically.\par
+\par
+4.\tab Choose \b Defaults\b0 .\par
+\par
+\pard\nowidctlpar\fi-540\li1260\tx1260 5.\tab Click [\b Yes\b0 ] to restart.\par
+\pard\nowidctlpar\li720\par
+\pard\nowidctlpar\fi-540\li1260\tx1260 6.\tab Click [\b Finish\b0 ].\par
+\pard\nowidctlpar\li720\par
+\pard\nowidctlpar\fi-540\li1260 ----------------------------------------------------------------\par
+\par
+\b III.\tab Installing CIC PenX 2.02 Driver\par
+\par
+\b0 1.\tab Double-click on \b Stylistic3500_CICPenX_Win2k.exe\b0 .\par
+\par
+2.\tab Click on \b Unzip\b0  to start the setup.\par
+\par
+3.\tab Press [\b OK\b0 ] after the files have been unzipped. Setup will run automatically.\par
+\par
+4.\tab Choose "\b Typical Installation"\b0 .\par
+\par
+5.\tab Choose \b "\cf1 Pen Has NO Button"\b0 .\par
+\cf0\par
+6.\tab Choose the defaults.\par
+\par
+7.\tab Restart when finished. \par
+\par
+8.\tab When the computer restarts, you \i may\i0  see a CIC PenX dialog with "\b Tablet not initialized\'85"\b0  message (if "\b Recognition and Inking" \b0 option has not been disabled prior to installation). This is because the Fujitsu Stylistic 3500 Pen Driver has not yet been installed to work with the CIC. Click [\b OK\b0 ].\par
+\par
+----------------------------------------------------------------\par
+\par
+\b IV.\tab Installing the Pen Driver\par
+\par
+\pard\nowidctlpar\fi-720\li1440\b0 1.\tab Double-click \b Stylistic3500_PenDriver_Win2k.exe\b0 .\par
+\par
+2.\tab Select [\b Browse\b0 ], then browse to a location to extract the files (e.g., \b C:\\ST3500\\PenDriver\b0 ). \par
+\par
+3.\tab Click [\b Unzip\b0 ] to start the setup.\par
+\par
+4.\tab Click [\b OK\b0 ] after files have been unzipped.\par
+\par
+5.\tab Right-click \b My Computer\b0 , then select \b Properties. \b0 The \b System Properties \b0 window will open.\par
+\par
+6.\tab Select the \b Hardware \b0 tab.\par
+\par
+7.\tab Click on [\b Device Manager\b0 ].\par
+\par
+8.\tab Select the last \b Unknown Device\b0  under \b Other Devices.\b0\par
+\par
+9.\tab Choose [\b Reinstall Driver\b0 ].\par
+\par
+\pard\fi-720\li1440\cf1\f1 10.\tab Select \b Display a List of Known Devices \b0 (Windows 2000) or \b Advanced (Specify Location Manually) \b0 (Windows XP).\par
+\par
+\cf0 11.\tab Select \b Other Devices \b0 under \b Hardware Type\b0 .\par
+\par
+\pard\fi-540\li1260 12.\tab Click [\b Next\b0 ].\par
+\pard\fi-720\li1440\par
+13.\tab (Windows XP)\b  \b0 Select "\b Don\rquote t install drivers. I will choose from a list manually".\par
+\b0\par
+14.\tab Click [\b Next\b0 ]. This displays the "\b Select a Device Driver" \b0 dialog.\par
+\par
+15.\tab Click on [\b Have Disk\b0 ]. This displays the "\b Install from Disk" \b0 dialog.\par
+\par
+16.\tab Click [\b Browse\b0 ]. This displays the "\b Locate File"\b0  dialog.\par
+\par
+17.\tab Select the \b fujpen.inf \b0 file in the \b C:\\ST3500\\PenDriver\b0  folder. Note that the file extension may not be displayed in the locate dialog window.\par
+\par
+18.\tab Click [\b Open\b0 ]. This returns you to the "\b Install from Disk"\b0  dialog with \b C:\\ST3500\\PenDriver\b0  folder selected for "\b Copy manufacturer\rquote s files from"\b0  option.\par
+\par
+19.\tab Click [\b OK\b0 ]. This returns you to the "\b Select a Device Driver"\b0  dialog.\par
+\par
+20.\tab Click [\b Next\b0 ]. The \b "Update Driver Warning" \b0 dialog is displayed, with \b "Installing this device driver is not recommended..." \b0 message. \par
+\par
+21.\tab Click [\b Yes\b0 ] to proceed.\par
+\par
+22.\tab The "\b Start Device Driver Installation"\b0  dialog is displayed.\par
+\par
+23.\tab Click [\b Next\b0 ]. The \b "Digital Signature not found" \b0 dialog is displayed. Click [\b Yes\b0 ] to proceed. This message will not be displayed once the Stylistic 3500 driver is WHQL-signed.\par
+\par
+24.\tab Click [\b OK\b0 ]. The driver is updated, then the \b "Completing the Upgrade Device Driver Wizard" \b0 dialog is displayed.\par
+\par
+25.\tab Click [\b Finish\b0 ]. This takes you back to the \b "Driver Properties" \b0 dialog, where you should see the Driver Version updated to reflect the new version.\par
+\par
+26.\tab Click [\b Close\b0 ]. You will be prompted to restart your computer. Remove the driver CD from the drive and then click [\b Yes\b0 ] to restart the computer. \f0\par
+\pard\nowidctlpar\fi-720\li1440\par
+\pard\nowidctlpar\fi-540\li1260 ----------------------------------------------------------------\par
+\par
+\pard\keepn\nowidctlpar\s4\fi-540\li1440\b V.\tab Installing the PenX Filter Driver\par
+\par
+\pard\nowidctlpar\fi-540\li1440\b0 1.\tab Open the \b Mouse\b0  applet in the control panel.\par
+\par
+2.\tab Select the \b Hardware \b0 tab in the applet.\par
+\par
+3.\tab In the \b Devices \b0 list, select the "\b Fujitsu Stylistic 3500 Pen Driver"\b0 .\par
+\par
+4.\tab Click [\b Properties\b0 ] button. The Driver Properties dialog will be displayed.\par
+\par
+5.\tab Select the \b Driver \b0 tab.\par
+\par
+6.\tab Click [\b Update Driver\b0 ]. This launches the \b "Upgrade Device Driver Wizard".\par
+\b0\par
+\pard\nowidctlpar\fi-630\li1530 7.\tab Click [\b Next\b0 ].\par
+\par
+8. \cf1\f1\tab Select \b Display a List of Known Devices \b0 (Windows 2000) or \b Advanced (Specify Location Manually) \b0 (Windows XP).\par
+\cf0\f0\par
+\pard\fi-630\li1530 9\f1 .\tab Select \b Other Devices \b0 under \b Hardware Type \b0 (for Windows 2000).\par
+\par
+10.\tab Click [\b Next\b0 ].\par
+\par
+11.\tab (Windows XP)\b  \b0 Select "\b Don\rquote t install drivers. I will choose from a list manually".\par
+\pard\nowidctlpar\fi-630\li1530\b0\f0\par
+12.\tab Click [\b Next\b0 ]. This displays "\b Select a Device Driver\b0 ".\par
+\pard\nowidctlpar\fi-540\li1440\par
+13.\tab Click [\b Have Disk\b0 ]. This displays the "\b Install from Disk" \b0 dialog.\par
+\par
+14.\tab Click [\b Browse\b0 ]. This displays "\b Locate File" \b0 dialog.\par
+\par
+15.\tab Select the \b Moufiltr.Inf \b0 file in the \b C:\\Program Files\\CIC\b0  folder.\par
+\par
+16.\tab Click [\b Open\b0 ]. This returns you to "\b Install from Disk"\b0  dialog with \b C:\\Program Files\\CIC \b0 folder selected for \b "Copy manufacturer\rquote s files from"\b0  option.\par
+\par
+17.\tab Click [\b OK\b0 ]. This returns you to \b "Select a Device Driver"\b0  dialog. "\b CIC PenX Filter Driver"\b0  should be displayed in the \b Models \b0 list.\par
+\par
+18.\tab Click [\b Next\b0 ]. \b "Update Driver Warning"\b0  dialog is displayed with \b "Installing this device driver is not recommended..."\b0  message. Click [\b Yes\b0 ] to proceed.\par
+\par
+19.\tab\b "Start Device Driver Installation"\b0  dialog is displayed.\par
+\par
+20.\tab Click [\b Next\b0 ]. \b "Digital Signature Not Found"\b0  dialog is displayed. Click [\b Yes\b0 ] to proceed with installation. This dialog will not be displayed once the CIC driver is WHQL signed.\par
+\par
+21.\tab Click [\b OK\b0 ]. The driver will be updated and \b "Completing the Upgrade Device Driver Wizard"\b0  dialog will be displayed.\par
+\par
+22.\tab Click [\b Finish\b0 ]. This returns you to the "\b Driver Properties\b0 " dialog.\par
+\par
+23.\tab Click [\b Close\b0 ]. You will be prompted to restart your computer. Click [\b Yes\b0 ] to restart the computer. When the computer restarts, there should be no warning messages related to pen, and the pen and PenX should be working.\par
+\pard\nowidctlpar\fi-540\li1260\par
+----------------------------------------------------------------\par
+\par
+\pard\fi-540\li1440\b\f1 VI. Installing Audio Driver\par
+\b0\par
+1.\tab Double-click \b Stylistic3500_Audio_Win2k.exe.\par
+\par
+\b0 2.\tab Unzip the file to the \b C:\\ST3500\\Audio \b0 directory.\par
+\par
+3.\tab Right-click \b My Computer\b0 , then select \b Properties\b0 . \b System Properties \b0 will open.\par
+\par
+4.\tab Select the \b Hardware \b0 tab.\par
+\par
+5.\tab Click [\b Device Manager\b0 ].\par
+\par
+6.\tab Select the "\b Multimedia Audio Controller" \b0 under \b Other Devices\b0 .\par
+\par
+7. \tab Click [\b Reinstall Driver\b0 ].\par
+\par
+8.\tab Click [\b Next\b0 ].\par
+\par
+9.\tab Select "\b Display a list of known drivers..."\par
+\par
+\b0 10.\tab Select "\b Sound, video, and game controllers" \b0 from \b Hardware Type.\par
+\par
+\b0 11.\tab Click [\b Next\b0 ]. This displays the "\b Select a Device Driver" \b0 dialog window.\par
+\par
+12.\tab Click on [\b Have Disk\b0 ]. This displays the \b Install from Disk \b0 window.\par
+\par
+13.\tab Click [\b Browse\b0 ]. This displays the \b Locate File\b0  window.\par
+\par
+14.\tab Select the \b stac97fj.inf \b0 file in the \b C:\\ST3500\\Audio \b0 folder.\par
+\par
+15.\tab Click [\b Open\b0 ]. This returns you to the "\b Install from Disk" \b0 window with the \b C:\\ST3500\\Audio \b0 folder selected for "\b Copy manufacturer's files from..." \b0 option.\par
+\par
+16.\tab Click [\b OK\b0 ]. This returns you to the "\b Select a Device Driver"\b0  dialog. \b "Intel AC '97 Audio Controller - SigmaTel Codec" \b0 should be displayed in the \b Models \b0 list.\par
+\par
+17.\tab Click [\b Next\b0 ], then click [\b OK\b0 ]. The driver will be updated and "\b Completing the Upgrade Device Driver Wizard" \b0 dialog is displayed.\par
+\par
+18.\tab Click [\b Finish\b0 ]. This returns you to the "\b Driver Properties" \b0 dialog.\par
+\par
+19.\tab Click [\b Close\b0 ].\par
+\par
+20. Reboot your system.\par
+ \par
+-------------------------------------------------------------\par
+\pard\nowidctlpar\fi-540\li1440\f0\par
+\par
+\b VII.\tab Installing Battery Aid\par
+\par
+\b0 1.\tab Double-click \b Stylistic3500_Batteryaid_Win2k.exe.\par
+\b0\par
+2.\tab Browse to the directory where you want to unzip the files (e.g., \b C:\\ST3500\\BatteryAid\b0 ). Click on \b Unzip \b0 to start the setup.\par
+\par
+3.\tab Press [\b OK\b0 ] after files have been unzipped. Setup will run automatically.\par
+\par
+4.\tab Choose \b Defaults\b0 .\par
+\par
+5.\tab Click [\b Finish\b0 ].\par
+\par
+6.\tab Close all windows.\par
+\par
+7.\tab Right-click \b My Computer\b0 , then select \b Properties\b0 . The \b System Properties\b0  window will open.\par
+\par
+8.\tab Select the \b Hardware \b0 tab.\par
+\par
+9.\tab Click on \b Device Manager\b0 .\par
+\par
+10.\tab Select the first \b "Unknown Device" \b0 under \b Other Devices.\b0\par
+\par
+11.\tab Click [\b Reinstall Driver\b0 ].\par
+\par
+12.\tab Select \b "Display a list of the known drivers..."\par
+\par
+\b0 13.\tab Select "\b Other Devices" \b0 from the \b Hardware Type.\par
+\b0\par
+14. Click [\b Next\b0 ]. This displays a "\b Select a Device Driver\b0 " dialog.\par
+\par
+15.\tab Click [\b Have Disk\b0 ]. This displays the "\b Install from Disk"\b0  dialog.\par
+\par
+16.\tab Click [\b Browse\b0 ]. This displays the "\b Locate File\b0 " dialog.\par
+\par
+17.\tab Browse to the \b C:\\ST3500\\BatteryAid\\FUJ02B1.inf \b0 file.\par
+\par
+18.\tab Click [\b OK\b0 ] to install the FUJ02B1 Device Driver.\par
+\par
+19.\tab Close the\b  Update Driver \b0 box, then close the \b Device Manager\b0 .\par
+\par
+----------------------------------------------------------------\par
+\pard\keepn\nowidctlpar\fi-540\li1440\b\par
+VIII.\tab Install Fujitsu Windows 2000 Utilities and Driver\par
+\pard\nowidctlpar\fi-540\li1440\par
+\b0 1.\tab Copy \b SAS.EXE\b0  and \b LCDETCT.EXE\b0  to the \b C:\\winnt\b0  directory.\par
+\par
+2.\tab Follow the steps below to install the driver:\par
+\par
+\pard\nowidctlpar\fi-540\li2160 a.\tab Double-click the \b "Add/Remove Hardware Wizard"\b0  applet in the Control Panel. \par
+\par
+b.\tab Select \b "Add/Troubleshoot a Device"\b0 . \par
+\par
+c.\tab Select "\b Add a new device". \b0\par
+\par
+d.\tab Select "\b No, I want to select the hardware from a list"\b0 . \par
+\par
+e.\tab Select "\b Other Devices"\b0  and then click [\b Next\b0\}. \par
+\par
+f.\tab Click [\b Have Disk\b0 ] and point to the directory that contains the \b fujdrv.inf \b0 file. This will install the Fujitsu Windows 2000 driver. There is no need to reboot the machine after the installation is complete.\par
+\par
+g.\tab Open a Command Prompt and run the command "\b regedit lcddetct". \b0 This will set the \b RunOnce \b0 key in the registry to load \b lcddetct.exe\b0 .\par
+\par
+h.\tab To automatically launch \b SAS.EXE\b0  every time the machine boots, create a shortcut to \b SAS.EXE \b0 in the Windows 2000/XP Startup group.\par
+\par
+g.\tab Go to \b Start \b0 -> \b Settings \b0 -> \b Taskbar & Start \b0 menu. Click on the \b Advanced \b0 tab. Click [\b Add\b0 ].\par
+\par
+h.\tab Browse to \b C:\\winnt\b0  and choose \b SAS.exe\b0  or type in \b C:\\winnt\\SAS.exe\b0 .\par
+\par
+i.\tab Click [\b Startup\b0 ], then click [\b Next\b0 ]. Choose the default on shortcut name and click [\b Finish\b0 ].\par
+\par
+j.\tab Click [\b OK\b0 ] to close the taskbar and Start menu, then reboot your system.\par
+\pard\nowidctlpar\fi-540\li1440\par
+}
+ 

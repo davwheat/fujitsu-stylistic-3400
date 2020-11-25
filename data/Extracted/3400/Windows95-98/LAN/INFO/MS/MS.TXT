@@ -1,0 +1,563 @@
+   All Microsoft Products
+
+     Installation Notes for PRO/100+ Server and Client Adapters in
+     Microsoft Operating Systems
+
+
+ CONTENTS
+ - WINDOWS NT* 4.0 INSTALLATION NOTES
+    o General Instructions
+ - WINDOWS NT* 3.51 INSTALLATION NOTES
+    o General Instructions
+ - WINDOWS* 98 INSTALLATION NOTES
+    o Manually Adding an Adapter in Windows 98
+ - WINDOWS* 95 INSTALLATION NOTES
+    o Determining Your Version of Windows 95
+    o General Instructions (For Version 950B Only)
+    o Advanced Configuration Parameters
+    o Manually Adding an Adapter in Windows 95
+    o Hints and Tips
+ - CHANGING ADAPTER SETTINGS WITH PROSET
+    o Other Settings
+ - UNINSTALLING THE ADAPTER
+    o Uninstalling in Windows 95/98
+    o Uninstalling in Windows NT 4.0
+    o Uninstalling in Windows NT 3.51
+ - WINDOWS* FOR WORKGROUPS 3.11 INSTALLATION NOTES
+    o General Instructions
+    o Hints and Tips
+
+     ***         ***         ***         ***          ***         ***
+
+
+- WINDOWS NT* 4.0 INSTALLATION NOTES
+  ==================================
+
+LOCATION OF DRIVER:    \E100BNT.SYS (NDIS 4.0)
+                       \OEMSETUP.INF
+      
+      Note: NT 4.0 ships with a driver for the PRO/100B adapter.  
+            However, you must install the more recent driver from
+            the PRO/100+ adapter disk or CD.
+
+
+General Instructions
+--------------------
+
+After putting the adapter in the computer, you need to configure it
+under Windows NT.
+
+1  Double-click the Network icon in the Control Panel.
+
+2  Select the Adapter tab.
+
+3  Click Add.  You'll see a list of adapters.
+
+4  Don't select an adapter from this list.  Instead, insert the 
+   PRO/100+ adapter disk or CD into the appropriate drive and click 
+   Have Disk.
+
+5  Type D:\ (for CD) or A:\ (for floppy) in the dialog box and click
+   OK.  Then follow the prompts to complete installation.  When the 
+   adapter is added you'll see a new adapter listed in the Network 
+   adapters list.
+
+6  Click Close to finish and configure any protocols as prompted.
+
+7  Restart Windows NT when prompted.
+
+
+    ***         ***         ***         ***          ***         ***
+
+
+- WINDOWS NT 3.51 INSTALLATION NOTES
+  ==================================
+
+LOCATION OF DRIVER:    \E100B.SYS (NDIS 3)
+                       \OEMSETUP.INF
+
+
+General Instructions
+--------------------
+
+After putting the adapter in the computer, you need to configure it
+under Windows NT.
+
+1  Double-click the Network icon in the Control Panel.
+
+2  Click the Add Adapter button.
+
+3  Do NOT select an Intel adapter from the list. Instead, scroll to the
+   end of the list and select:
+      
+      <Other> Requires disk from manufacturer.
+
+4  Click the Continue button.
+
+5  Insert the Intel PRO/100+ disk or CD into the corresponding drive,
+   specify that drive, and click OK.
+
+6  Select the name that corresponds to the adapter you are installing
+   and click OK.
+
+7  Click OK in the Network Settings dialog.  Other configuration screens
+   may appear. Configure as desired. When prompted, restart Windows NT.
+      
+      Note: The NDIS 3 miniport driver will automatically get installed
+            in Windows NT 3.51.
+
+
+     ***         ***         ***         ***          ***         ***
+
+
+- WINDOWS 98 INSTALLATION NOTES
+  =============================
+
+LOCATION OF DRIVER:       \E100BNT5.SYS (NDIS 5.0)
+LOCATION OF SETUP FILE:   \NET82557.INF
+
+
+Manually Adding an Adapter in Windows 98
+========================================
+
+If the New Hardware Found dialog box does not appear at startup and
+you cannot connect to the network, check the Device Manager list to
+see if the new adapter is present. If it is not, follow these steps:
+
+1.  From the Control Panel, double-click the System icon.
+2.  Click the Device Manager tab.
+3.  Double-click Other Devices or Network Adapters in the list area.
+4.  Double-click a PCI Ethernet Controller.
+5.  Click the Driver tab, then click Update Driver.
+6.  Click Next at the Update Device Driver Wizard.
+7.  Select "Search for a better driver..." and click Next.
+8.  Insert the PRO/100+ adapter disk and select "Specify a location",
+    then enter the appropriate drive for your disk media (A:, D:, etc.),
+    and Click Next.
+9.  The Update Wizard displays the message that it has found the driver
+    D:\NET82557.INF (where D: is your media drive).  Click Next.
+10. Click Finish.
+11. Restart your computer when prompted. 
+
+
+     ***         ***         ***         ***          ***         ***
+
+
+ - WINDOWS* 95 INSTALLATION NOTES
+   ==============================
+
+LOCATION OF DRIVER:       \E100BNT.SYS (NDIS 4.0)
+LOCATION OF SETUP FILE:   \NET82557.INF
+
+
+DETERMINING YOUR VERSION OF WINDOWS 95
+======================================
+
+    Follow the steps below to determine which version of Windows 95 you 
+    are running:
+
+    1.  Click on the Start button.
+    2.  Select Settings.
+    3.  Select the Control Panel.
+    4.  Double-click on the System icon. The System Properties dialog 
+        box opens.
+    5.  Select the General tab. Information about your system is
+        displayed, including the version of Windows 95 you are
+        running, under System.
+
+General Instructions (For version 950B Only)
+============================================
+
+1  Install the adapter in the computer and turn on the power.  Have the
+   Windows 95 CD ROM available, as you will need it to copy additional
+   files. While Windows 95 is starting, it will detect the new hardware.
+
+2  When Windows 95 starts, a New Hardware Found dialog box appears. It
+   identifies the adapter as a PCI Ethernet Controller.  Insert the
+   Configuration and Drivers disk or CD in the appropriate drive,
+   and at the Update Device Driver Wizard, click Next.
+
+   NOTE: If the New Hardware Found dialog box doesn't appear, you'll
+         need to manually configure the adapter. See the section
+         "Alternatives for Adding Network Cards to Windows 95".
+
+3  The Update Device Driver Wizard lists the driver it has found as
+   the Intel(R) PRO/100+ PCI Adapter.  Click Finish.
+
+4  A dialog may appear requesting Windows 95 system network files. If
+   so, follow the instructions.
+      
+      Note: The Windows 95 system files are typically available on the
+            Windows 95 CD in the win95 directory (D:\win95). If Windows
+            95 requests the E100B.DOS file or the 8255XNDI.DL_ files,
+            they can be found on the Configuration and Drivers disk.
+
+6  The Systems Setting Change dialog appears indicating you should
+   restart the system for changes to become effective.  Remove the
+   Configuration and Drivers disk from the drive and click Yes for the 
+   changes to take effect.
+
+
+Advanced Configuration Parameters
+---------------------------------
+
+An advanced configuration utility called PROSet was installed on your
+system when you installed the PRO/100+ adapter. To start PROSet,
+double-click on the PROSet icon in the Windows control panel. For
+additional information, click Help in the PROSet window.
+
+The defaults specified for the adapter work correctly for most
+configurations.  When making changes to any adapter settings,
+be sure to use PROSet rather than the Advanced tab under Properties
+in the Network control panel.  
+
+
+Manually Adding an Adapter in Windows 95 (For version 950B Only)
+================================================================
+
+If the New Hardware Found dialog box does not appear at startup and
+you cannot connect to the network, check the Device Manager list to
+see if the new adapter is present. If it is not, follow these steps:
+
+1.  From the Control Panel, double-click the System icon.
+2.  Click the Device Manager tab.
+3.  Double-click Other Devices (question mark icon) in the list area.
+4.  Double-click a PCI Ethernet Controller.
+5.  Click the Driver tab, then click Update Driver.
+6.  Insert the Configuration and Drivers disk or CD in the appropriate
+    drive, and at the Update Device Driver Wizard, select "No" and 
+    click Next.
+7   Click Have Disk, insert the Configuration and Drivers disk
+    in the appropriate drive, and click OK.
+8.  At the Select Device dialog box, click OK again.
+9.  Follow any prompts for Windows 95 installation disks and restart
+    when prompted.
+      
+      Note: The Windows 95 system files are typically available on the
+            Windows 95 CD in the win95 directory (D:\win95).
+
+Hints and Tips
+--------------
+
+   Using NDIS 2 driver and Full Duplex:
+   
+   Installing the NDIS 2 driver through Windows 95 does not properly set
+   the driver to Full Duplex.  In order for you to use Full Duplex with
+   E100B.DOS, you must edit the PROTOCOL.INI file in the Windows 95
+   directory to include:
+   
+   [E100B_NIF]
+   Drivername = E100B$
+   FORCEDUPLEX = 2
+
+
+     ***         ***         ***         ***          ***         ***
+
+ - CHANGING ADAPTER SETTINGS WITH PROSET
+   =====================================
+
+There are two ways to run PROSet, which allows changing the adapter
+settings.
+   
+   - From the Control Panel double-click on the PROSet icon.
+   
+   - From the Control Panel, double-click on the Network icon, select
+     the Adapters tab, and double-click on the "Intel(R) PRO/100+
+     PCI Adapter".
+
+
+From the main PROSet menu click the Advanced tab to view and modify
+adapter settings. The defaults work correctly for most configurations.
+
+
+Speed
+-----
+
+Recommended setting:  Auto Detect (default)
+
+This parameter lets the PRO/100+ adapter know what speed to use on the 
+Ethernet wire.  The choices are 10 Mbps, 100 Mbps, and Auto Detect.
+In Auto Detect mode, the adapter detects if its environment can support
+100 Mbps speed. It then sets the speed to 100 if it can, or 10 if it 
+can't.
+      
+      Note: If you want to choose a Duplex Mode other than Auto Detect,
+            you must set the speed to either 10 Mbps or 100 Mbps.
+
+
+Duplex
+------
+
+Recommended setting: Auto Detect
+      
+      Auto Detect: The adapter negotiates with the hub or switch how
+            to send/ receive packets, either full or half duplex.
+      
+      Full-Duplex: The adapter sends and receives packets at the same
+            time. This improves the performance of your adapter. Set
+            duplex mode to full duplex only if you have a full duplex
+            switch.
+      
+      Half-Duplex: The adapter performs one operation at a time. It
+            either sends or receives.
+
+      Note: To change the Duplex mode, you must set the Speed to
+            either 10 Mbps or 100 Mbps.
+
+The PRO/100+ adapter has the ability to send and receive packets at
+the same time (full-duplexing) at both 10 and 100 Mbps. In order to
+reap the benefits of full duplexing, you MUST have a full duplex
+hub or switch.
+
+The PRO/100+ adapter has the added ability to "talk" to the hub or
+switch and determine at which mode to communicate (either full or half
+duplex). This is called auto-negotiation. You must have an auto-
+negotiating hub or switch to get full duplex support with the Duplex
+Mode set to Auto. If you don't have an auto-negotiating hub or switch
+and want to run at full duplex, set Duplex Mode to Full and then set
+the SPEED parameter to either 100 Mbps or 10 Mbps.
+
+The PRO/100B T4 adapter can not operate in full duplex mode at 100 Mbps. 
+The PRO/10+ PCI adapter can only operate in full duplex mode at 10 Mbps
+and only on the TPE connector. The PRO/10+ PCI adapter does not support 
+autonegotiation; it will run at half duplex unless forced.
+
+
+Other Settings
+==============
+
+For information on other settings in the PROSet Advanced tab, use 
+PROSet's context-sensitive online help.
+
+
+     ***         ***         ***         ***          ***         ***
+
+
+ - UNINSTALLING THE ADAPTER
+   ========================
+
+Uninstalling in Windows 95/98
+=============================
+
+To uninstall the adapter driver and software from Windows 95 or
+Windows 98, perform the following steps:
+
+1.  Double-click on the Add/Remove Programs icon in the Control Panel.
+2.  Highlight the Intel(R) network adapter listing and click the
+    Add/Remove button.
+3.  Click OK at the confirmation prompt.
+4.  Click OK to close the Add/Remove Programs Properties dialog box.
+5.  Restart your computer.
+
+
+Uninstalling in Windows NT 4.0
+==============================
+
+To uninstall the adapter driver and software from Windows NT 4.0,
+perform the following steps:
+
+1.  Double-click on the Network icon in the Control Panel.
+2.  Click the Adapters tab.
+3.  Highlight an Intel network adapter listing (or Intel team
+    listing) and click the Remove button.
+4.  Click Yes at the confirmation prompt.
+5.  Repeat steps 3 and 4 for every Intel adapter listing and team
+    listing.
+            NOTE:  You must remove every Intel listing to remove
+                   the adapter driver and software.
+
+6.  Click Close to close the Network dialog box.
+7.  Restart your computer.
+
+
+Uninstalling in Windows NT 3.51
+===============================
+
+There is currently no auto-uninstall procedure for Windows NT 3.51.
+
+If you need to uninstall the Intel adapter and software in Windows
+NT 3.51, please contact Intel's Customer Support.
+
+
+
+     ***         ***         ***         ***          ***         ***
+
+ - WINDOWS* FOR WORKGROUPS 3.11 INSTALLATION NOTES
+   ===============================================
+
+Location of Driver:       \WFW\E100B.38_
+Location of Setup file:   \WFW\OEMSETUP.INF
+
+General Instructions
+====================
+
+BEFORE YOU BEGIN
+
+If your adapter was shipped with a CD, create an installation 
+diskette from the CD before starting the installation procedure. Put
+the CD into your CD-ROM drive and a blank formatted diskette into a 
+diskette drive. Run the MAKEMS.BAT from the MAKEDISK directory on your
+CD. The command syntax is MAKEMS <source drive> <destination diskette>.
+Example; MAKEMS D: A:
+
+NOTE: If you are running Novell NetWare* on this workstation, see the
+      Novell NetWare section of Hints and Tips below before continuing
+      with this installation.
+
+1  Double-click the Network Setup icon in the Network Group.
+
+2  If you are replacing a previous LAN adapter, click the Remove button
+   to delete that adapter.
+
+3  Click the Networks button. Select Install Microsoft Windows Network
+   and click OK.
+   
+   Optional: To add Novell NetWare support to this workstation, click
+         Other, then select Novell NetWare Shell 3.x if you are using
+         NETX, or select Novell NetWare Shell 4.x if you use VLMs. Click
+         OK.
+   
+   Optional: To share files and printers on this workstation, click the
+         Sharing button, then click on OK.
+
+4  Click the Drivers button.
+
+5  Click the Add Adapter button. Select Unlisted or Updated Network
+   Adapter and click on OK.
+
+6  Insert the adapter driver disk in the drive and specify the path 
+   <drive>:\WFW for the location of the driver.
+
+7  Select the Intel PRO/100+ PCI adapter from the list box
+   and click OK.
+
+8  Specify the correct speed for your network. If you are using the TX
+   based adapter, specify the correct duplex mode. If you are unsure of
+   the correct settings, contact your Network Administrator.
+   
+   Note: If you set the PRO/100+ TX adapter to FULL duplex and you are
+         running at 100 Mbps, you must change your speed setting to 100.
+   
+   Note: These options will not come up if you already have the NetWare
+         ODI driver installed.  These settings are set in the NET.CFG
+         file.
+
+9  The driver and default protocols will appear in the Network Drivers
+   window. If you need to add or remove a protocol, do so here.
+
+10 In the Network Drivers window, click Close.
+
+11 In the Network Setup window, click OK.
+
+12 In the Microsoft Windows Network Names window, enter a unique user
+   name, the name of your new or existing workgroup, and a unique
+   computer name for your workstation, then click OK.
+
+13 Choose Yes To All when WFW asks if you want to replace the files
+   currently installed with the versions you are installing now.
+
+14 Insert the WFW disks WFW asks for. If prompted for the NetWare files,
+   insert the Novell disk containing the drivers from the Novell file
+   WINDR3.EXE. If prompted for the path of E100B.386, insert the 
+   Configuration and Drivers disk into a drive and for the path, type:
+      A:\WFW or D:\WFW if using the CD-ROM.
+   If prompted for the path of E100B.DOS, specify:
+      A:\DOS or D:\DOS if using the CD-ROM.
+
+15 When finished updating the files, WFW reports that it modified
+   several files. Click on OK. WFW changes your last drive to P:.  If
+   you want to change this setting, do so in your CONFIG.SYS file.  WFW
+   also modifies your NET.CFG file (for NetWare users).  Check this file
+   to make sure your frame types load in the correct order for your
+   network.
+
+16 When WFW prompts you to restart your computer for the changes to take
+   effect, click on Restart Computer.
+
+Hints and Tips
+--------------
+General
+
+1. If you are installing multiple PRO/100 adapters in WFW follow the
+   instructions above for installing each adapter. Then, enter the
+   adapter's 12-digit hexadecimal Ethernet address in the [IN$E100B]
+   and [IN$E100B1] sections of the PROTOCOL.INI file. (The Ethernet
+   address is printed on a sticker placed on the adapter. For dual-
+   port adapters, increment the Ethernet address by 1 for the Ethernet
+   address of the second port.)
+
+Novell NetWare
+
+1. Before you begin to install driver support for WFW and Novell NetWare
+   on the same workstation, you'll need these Novell NetWare files:
+   NETWARE.DRV, NETWARE.HLP, NWPOPUP.EXE, VIPX.386, and VNETWARE.386.
+   To obtain these files, do one of the following:
+   
+   a  Download the self-extracting file WINDR3.EXE from Novell NetWare
+      forum on CompuServe or Novell's FTP server on the internet
+      (ftp.novell.com) or WWW
+      (ftp://ftp.novell.com/pub/updates/nwos/dsclnt12).
+   
+   b  Contact Novell to have the files sent to you.
+   
+   c  Contact a Novell NetWare dealer in your area.
+
+2  Set up the workstation to connect to NetWare using the DOS ODI client
+   driver.
+
+3  Load the ODI driver and login to your NetWare server.
+
+4  Start WFW and set up the driver for the PRO/100+ adapter
+   by following the instructions shown above. When the driver is chosen,
+   WFW detects the ODI driver is already loaded and automatically
+   installs the appropriate support.  Next to the adapter name in the
+   Network Drivers window, you'll see [ODI/NDIS3] which indicates it
+   recognized the ODI driver.
+
+
+   Sample PROTOCOL.INI:
+
+   Windows for Workgroups(WFW) creates the PROTOCOL.INI for you. This is
+   provided for reference. This is a sample with Microsoft NetBEUI and
+   IPX/SPX Compatible Transport with NetBIOS.
+      
+      [network.setup]
+      version=0x3110
+      netcard=in$e100b,1,IN$E100B,3
+      transport=ms$nwlinknb,NWLINK
+      transport=ms$ndishlp,MS$NDISHLP
+      transport=ms$netbeui,NETBEUI
+      lana0=in$e100b,1,ms$netbeui
+      lana1=in$e100b,1,ms$nwlinknb
+      lana2=in$e100b,1,ms$ndishlp
+      
+      [protman]
+      DriverName=PROTMAN$
+      PRIORITY=MS$NDISHLP
+      
+      [IN$E100B]
+      DriverName=E100B$
+      
+      [E100B]
+      Adapters=IN$E100B
+      
+      [NWLINK]
+      
+      BINDINGS=IN$E100B
+      [MS$NDISHLP]
+      DriverName=ndishlp$
+      BINDINGS=IN$E100B
+      
+      [NETBEUI]
+      DriverName=netbeui$
+      SESSIONS=10
+      NCBS=12
+      BINDINGS=IN$E100B
+      LANABASE=0
+
+
+
+
+*  Third-party trademarks are the property of their respective owners.
+
+###

@@ -1,0 +1,13 @@
+; ************************************************************************
+; Windows NT 4 Driver for Intel(r) AC'97 Audio Controller : SigmaTel Codec
+; ************************************************************************
+
+[Source Media Descriptions]
+    1  = "Intel(r) 82801AA/AB AC'97 Audio Controller : SigmaTel Codec"  , TAGFILE = IAC97U4.dll
+
+[Installable.Drivers]
+iac97 = 1:IAC97U4.dll, "wave,aux,mixer", "AC'97 Audio Ctrlr : SigmaTel Codec Driver" ,,,
+
+[iac97]
+1:IAC97K4.sys
+
