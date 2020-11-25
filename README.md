@@ -50,4 +50,4 @@ Included in this repository, you can find several documents relating to this dev
 - [Fujitsu Stylistic 3400 User Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20User%20Manual%20EN.pdf)
 - [Fujitsu Stylistic 3400 Technical Reference Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20Technical%20Reference%20Manual%20EN.pdf)
 
-You can also find much more documentation, drivers, and community support info [here](data/Extracted). These files apply to the Stylistic 3400 AND Stylistic 3500.
+You can also find much more documentation, drivers, and community support info [here](data). These files apply to the Stylistic 3400 AND Stylistic 3500.
