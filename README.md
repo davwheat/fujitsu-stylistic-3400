@@ -5,6 +5,7 @@
 - [Contents](#contents)
 - [Preface](#preface)
 - [Introduction](#introduction)
+- [Drivers](#drivers)
 - [Hardware limitations](#hardware-limitations)
   - [Limited USB support](#limited-usb-support)
   - [192 MB maximum RAM](#192-mb-maximum-ram)
@@ -32,6 +33,14 @@ The device was intended to be treated as a portable and dockable system, meaning
 > ![](img/promo-image-in-dock.jpg)
 >
 > Image of the docked Stylistic 3400, along with a floppy drive (using a proprietary connector), USB CD drive and keyboard
+
+## Drivers
+
+Surprisingly, the [official Fujitsu drivers page](http://www.shopfujitsu.com/CSPortal/supportsearch.do?srch=DOWNLOADS&Series=Stylistic&Model=Stylistic%203400&ProductType=Tablet%20PC) for this product is still live as of 2020.
+
+Despite this, I've still made a copy of all the drivers for historical purposes because, at some point, this will go down!
+
+See the [drivers page](drivers/README.md) for more info.
 
 ## Hardware limitations
 
