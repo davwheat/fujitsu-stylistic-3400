@@ -76,6 +76,6 @@ Fujitsu supplied the manual in 5 different languages: English, French, German, I
 
 ### Technical reference manual
 
-I haven't found the Technical Reference Manual anywhere from Fujitsu officially, so I downloaded it from a 3rd-party website, thus it had watermarks all over it, unfortunately.
+The guide below is downloaded directly from Fujitsu's website.
 
-[Fujitsu Stylistic 3400 Technical Reference Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20Technical%20Reference%20Manual%20EN.pdf)
+[Fujitsu Stylistic 3400 Technical Reference Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20Technical%20Reference%20Guide%20EN.pdf)
