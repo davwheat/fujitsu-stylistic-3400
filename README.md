@@ -9,6 +9,9 @@
   - [Limited USB support](#limited-usb-support)
   - [192 MB maximum RAM](#192-mb-maximum-ram)
 - [Documentation](#documentation)
+  - [Promotional material](#promotional-material)
+  - [User Manual](#user-manual)
+  - [Technical reference manual](#technical-reference-manual)
 
 ## Preface
 
@@ -46,8 +49,24 @@ It shipped with 64 MB soldered to the motherboard, but could be expanded by a 32
 
 Included in this repository, you can find several documents relating to this device.
 
-- [Fujitsu Stylistic 3400 Promotional material PDF](docs/Fujitsu%20Stylistic%203400%20-%20Promotional%20Material.pdf)
-- [Fujitsu Stylistic 3400 User Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20User%20Manual%20EN.pdf)
-- [Fujitsu Stylistic 3400 Technical Reference Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20Technical%20Reference%20Manual%20EN.pdf)
+### Promotional material
 
-You can also find much more documentation, drivers, and community support info [here](data). These files apply to the Stylistic 3400 AND Stylistic 3500.
+I could only find one brochure-type piece of promotional material, which is below.
+
+[Fujitsu Stylistic 3400 Promotional Material PDF](docs/Fujitsu%20Stylistic%203400%20-%20Promotional%20Material.pdf)
+
+### User Manual
+
+Fujitsu supplied the manual in 5 different languages: English, French, German, Italian, and Spanish. This manual is downloaded directly from their [official drivers page](http://www.shopfujitsu.com/CSPortal/supportsearch.do?srch=DOWNLOADS&Series=Stylistic&Model=Stylistic%203400&ProductType=Tablet%20PC).
+
+- [English](docs/User%20Guide/ST3400%20English.pdf)
+- [French](docs/User%20Guide/ST3400%20French.pdf)
+- [German](docs/User%20Guide/ST3400%20German.pdf)
+- [Italian](docs/User%20Guide/ST3400%20Italian.pdf)
+- [Spanish](docs/User%20Guide/ST3400%20Spanish.pdf)
+
+### Technical reference manual
+
+I haven't found the Technical Reference Manual anywhere from Fujitsu officially, so I downloaded it from a 3rd-party website, thus it had watermarks all over it, unfortunately.
+
+[Fujitsu Stylistic 3400 Technical Reference Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20Technical%20Reference%20Manual%20EN.pdf)
