@@ -10,10 +10,6 @@
   - [Limited USB support](#limited-usb-support)
   - [192 MB maximum RAM](#192-mb-maximum-ram)
 - [Documentation](#documentation)
-  - [Promotional material](#promotional-material)
-  - [User Manual](#user-manual)
-  - [Technical reference manual](#technical-reference-manual)
-  - [Documentation disk](#documentation-disk)
 
 ## Preface
 
@@ -28,6 +24,8 @@ The Stylistic 3400 (model number FMW4203TXA01) released in November 2000<sup>1</
 The 3400 was a completely new product compared to what Fujitsu has released in the past across the Stylistic range, running Intel Pentium III or Celeron processors at an *extraordinary 400 MHz(!)*, shipping with 64 MB RAM soldered to the motherboard.
 
 The device was intended to be treated as a portable and dockable system, meaning you would use it during a commute or on-location, as well as at a desk in the dock accessory.
+
+The main use case pushed by Fujitsu appears to be Hospitals, as they are mentioned consistently through the [promotional material](#documentation).
 
 1 - [First article online](https://fcw.com/articles/2000/11/28/fujitsu-steams-ahead-with-stylistic.aspx) from 28 Nov 2000. ["TheNeil"](https://web.archive.org/web/20201125000306/http://www.theneil.plus.com/retrostylistic3400.html) also records November 2000 as the release date on his retro collection website.
 
@@ -57,30 +55,4 @@ It shipped with 64 MB soldered to the motherboard, but could be expanded by a 32
 
 ## Documentation
 
-Included in this repository, you can find several documents relating to this device.
-
-### Promotional material
-
-I could only find one brochure-type piece of promotional material, which is below.
-
-[Fujitsu Stylistic 3400 Promotional Material PDF](docs/Fujitsu%20Stylistic%203400%20-%20Promotional%20Material.pdf)
-
-### User Manual
-
-Fujitsu supplied the manual in 5 different languages: English, French, German, Italian, and Spanish. This manual is downloaded directly from their [official drivers page](http://www.shopfujitsu.com/CSPortal/supportsearch.do?srch=DOWNLOADS&Series=Stylistic&Model=Stylistic%203400&ProductType=Tablet%20PC).
-
-- [English](docs/User%20Guide/ST3400%20English.pdf)
-- [French](docs/User%20Guide/ST3400%20French.pdf)
-- [German](docs/User%20Guide/ST3400%20German.pdf)
-- [Italian](docs/User%20Guide/ST3400%20Italian.pdf)
-- [Spanish](docs/User%20Guide/ST3400%20Spanish.pdf)
-
-### Technical reference manual
-
-The guide below is downloaded directly from Fujitsu's website.
-
-[Fujitsu Stylistic 3400 Technical Reference Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20Technical%20Reference%20Guide%20EN.pdf)
-
-### Documentation disk
-
-See [this page](drivers/Internet%20Archive%20CD%20ISO).
+See the [dedicated documentation page](docs).
