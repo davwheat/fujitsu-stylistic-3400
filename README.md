@@ -13,6 +13,7 @@
   - [Promotional material](#promotional-material)
   - [User Manual](#user-manual)
   - [Technical reference manual](#technical-reference-manual)
+  - [Documentation disk](#documentation-disk)
 
 ## Preface
 
@@ -79,3 +80,7 @@ Fujitsu supplied the manual in 5 different languages: English, French, German, I
 The guide below is downloaded directly from Fujitsu's website.
 
 [Fujitsu Stylistic 3400 Technical Reference Manual (English)](docs/Fujitsu%20Stylistic%203400%20-%20Technical%20Reference%20Guide%20EN.pdf)
+
+### Documentation disk
+
+See [this page](drivers/Internet%20Archive%20CD%20ISO).
