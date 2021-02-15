@@ -1,8 +1,17 @@
-# Fujitsu Stylistic 3400 Drivers
+# Fujitsu Stylistic 3400 Drivers, Tools, and Documentation
 
 As of the time of writing, the official Fujitsu drivers page is still live.
 
 For historical purposes, I've downloaded a copy of all the drivers on the website to preserve.
+
+## Documentation disk
+
+See [this page](Internet%20Archive%20CD%20ISO).
+
+## Other tools
+
+- [Stylistic 3400 BIOS 1.05 Upgrade](Stylistic3400_BIOS_1.05.exe)
+- [PHDisk](phdisk-st3400.exe)
 
 ## Windows 2000
 

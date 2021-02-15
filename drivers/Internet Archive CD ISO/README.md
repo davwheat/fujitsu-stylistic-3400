@@ -4,4 +4,4 @@ This folder contains a [compressed ISO](Fujitsu-Stylistic-3400-3500-Drivers-Soft
 
 I haven't used any of these files, but someone may find them useful.
 
-For convenience, an extracted copy is also supplied [here](https://github.com/davwheat/fujitsu-stylistic-3400/tree/main/data/Extracted).
+The file has been compressed with modern WinRAR to fit within GitHub's 64 MB file size limit, so must be uncompressed first.
