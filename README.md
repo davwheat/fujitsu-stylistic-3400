@@ -35,9 +35,9 @@ The main use case pushed by Fujitsu appears to be Hospitals, as they are mention
 
 ## Drivers
 
-Surprisingly, the [official Fujitsu drivers page](http://www.shopfujitsu.com/CSPortal/supportsearch.do?srch=DOWNLOADS&Series=Stylistic&Model=Stylistic%203400&ProductType=Tablet%20PC) for this product is still live as of 2020.
+~~Surprisingly, the [official Fujitsu drivers page](http://www.shopfujitsu.com/CSPortal/supportsearch.do?srch=DOWNLOADS&Series=Stylistic&Model=Stylistic%203400&ProductType=Tablet%20PC) for this product is still live as of 2020.~~
 
-Despite this, I've still made a copy of all the drivers for historical purposes because, at some point, this will go down!
+Despite this, I've still made a copy of all the drivers for historical purposes because, ~~at some point, this will go down!~~ as of May 2025, it seems the page has finally been retired.
 
 See the [drivers page](drivers/README.md) for more info.
 
